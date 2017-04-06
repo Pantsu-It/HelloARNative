@@ -1,0 +1,4 @@
+See file:///D:/Android/Projects/EasyARSDKSamples/Android/HelloARNative/app/build/tmp/linkArmeabi-v7aDebugHelloARNativeSharedLibrary/output.txt for all output for linkArmeabi-v7aDebugHelloARNativeSharedLibrary.
+linking libHelloARNative.so successful.
+
+Finished linkArmeabi-v7aDebugHelloARNativeSharedLibrary, see full log file:///D:/Android/Projects/EasyARSDKSamples/Android/HelloARNative/app/build/tmp/linkArmeabi-v7aDebugHelloARNativeSharedLibrary/output.txt.

@@ -1,0 +1,8 @@
+See file:///D:/Android/Projects/EasyARSDKSamples/Android/HelloARNative/app/build/tmp/compileArmeabi-v7aDebugHelloARNativeSharedLibraryHelloARNativeMainCpp/output.txt for all output for compileArmeabi-v7aDebugHelloARNativeSharedLibraryHelloARNativeMainCpp.
+compiling renderer.cc successful.
+
+compiling helloar.cc successful.
+
+compiling ar.cc successful.
+
+Finished compileArmeabi-v7aDebugHelloARNativeSharedLibraryHelloARNativeMainCpp, see full log file:///D:/Android/Projects/EasyARSDKSamples/Android/HelloARNative/app/build/tmp/compileArmeabi-v7aDebugHelloARNativeSharedLibraryHelloARNativeMainCpp/output.txt.
