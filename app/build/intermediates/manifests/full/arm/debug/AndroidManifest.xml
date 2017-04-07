@@ -27,6 +27,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="cn.easyar.samples.helloar.manage.ManageActivity" >
+        </activity>
         <activity
             android:name="cn.easyar.samples.helloar.ar.ARActivity"
             android:screenOrientation="landscape" >

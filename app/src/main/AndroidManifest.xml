@@ -20,6 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".manage.ManageActivity">
+        </activity>
         <activity
             android:name=".ar.ARActivity"
             android:screenOrientation="landscape">

@@ -31,13 +31,14 @@ public class ARModel {
     public static native boolean nativeInit();
     public static native void nativeDestory();
     public static native void nativeRotationChange(boolean portrait);
+    public static native void nativeLoadTarget(String path);
 
     public static void init(Activity activity) {
         EasyAR.initialize(activity, key);
     }
 
-    public static void loadImage() {
-//        JsonWriter jsonWriter = new JsonWriter();
+    public static void loadImage(String path) {
+        nativeLoadTarget(path);
     }
 
 }

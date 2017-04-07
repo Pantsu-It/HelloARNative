@@ -1,8 +1,8 @@
 /**
-* Copyright (c) 2015-2016 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
-* EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
-* and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
-*/
+ * Copyright (c) 2015-2016 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+ * EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
+ * and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
+ */
 
 package cn.easyar.samples.helloar.ar;
 
@@ -18,9 +18,11 @@ import android.view.WindowManager;
 
 import cn.easyar.engine.EasyAR;
 import cn.easyar.samples.helloar.R;
+import cn.easyar.samples.helloar.beans.Target;
+import cn.easyar.samples.helloar.manage.ManageModel;
 
 
-public class ARActivity extends ActionBarActivity{
+public class ARActivity extends ActionBarActivity {
 
     static {
         System.loadLibrary("EasyAR");
@@ -41,6 +43,11 @@ public class ARActivity extends ActionBarActivity{
 
         ((ViewGroup) findViewById(R.id.preview)).addView(glView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         ARModel.nativeRotationChange(getWindowManager().getDefaultDisplay().getRotation() == android.view.Surface.ROTATION_0);
+
+        Target target = ManageModel.getInstance(this).getTarget();
+        if (target != null && target.getImage() != null) {
+            ARModel.nativeLoadTarget(target.getImage());
+        }
     }
 
     @Override
@@ -54,6 +61,7 @@ public class ARActivity extends ActionBarActivity{
         super.onDestroy();
         ARModel.nativeDestory();
     }
+
     @Override
     protected void onResume() {
         super.onResume();

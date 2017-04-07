@@ -2,16 +2,8 @@
   "images" :
   [
     {
-      "image" : "sightplus/argame01.jpg",
-      "name" : "argame01"
-    },
-    {
-      "image" : "sightplus/argame02.jpg",
-      "name" : "argame02"
-    },
-    {
-      "image" : "sightplus/argame03.jpg",
-      "name" : "argame03"
+      "image" : "/storage/emulated/0/Android/data/cn.easyar.samples.helloar/files/targets/0.png",
+      "name" : "my_target"
     }
   ]
 }

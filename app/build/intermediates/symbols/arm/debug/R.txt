@@ -245,7 +245,7 @@ int id action_context_bar 0x7f0c001d
 int id action_menu_divider 0x7f0c0001
 int id action_menu_presenter 0x7f0c0002
 int id action_mode_close_button 0x7f0c0024
-int id action_settings 0x7f0c003f
+int id action_settings 0x7f0c0041
 int id activity_chooser_view_content 0x7f0c0025
 int id always 0x7f0c0013
 int id beginning 0x7f0c000f
@@ -266,6 +266,8 @@ int id homeAsUp 0x7f0c000a
 int id icon 0x7f0c002a
 int id ifRoom 0x7f0c0015
 int id image 0x7f0c0027
+int id iv_src 0x7f0c0040
+int id iv_target 0x7f0c003f
 int id listMode 0x7f0c0006
 int id list_item 0x7f0c0029
 int id middle 0x7f0c0011
@@ -325,7 +327,8 @@ int layout abc_search_view 0x7f040016
 int layout abc_simple_decor 0x7f040017
 int layout activity_ar 0x7f040018
 int layout activity_main 0x7f040019
-int layout support_simple_spinner_dropdown_item 0x7f04001a
+int layout activity_manage 0x7f04001a
+int layout support_simple_spinner_dropdown_item 0x7f04001b
 int menu menu_main 0x7f0d0000
 int mipmap ic_launcher 0x7f030000
 int string abc_action_bar_home_description 0x7f060000

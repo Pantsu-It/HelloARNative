@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 
 import cn.easyar.samples.helloar.R;
 import cn.easyar.samples.helloar.ar.ARActivity;
+import cn.easyar.samples.helloar.manage.ManageActivity;
 import cn.easyar.samples.helloar.tool.FileUtils;
 import cn.easyar.samples.helloar.tool.XUtils;
 
@@ -37,37 +38,13 @@ public class MainActivity extends Activity {
         int id = view.getId();
         switch (id) {
             case R.id.btn_manage:
-                XUtils.toast("manage");
-                Intent intent = FileUtils.selectImage(this);
-                startActivityForResult(intent, 123);
+                startActivity(ManageActivity.getIntent(this));
                 break;
             case R.id.btn_ar:
                 startActivity(ARActivity.getIntent(this));
-                XUtils.toast("ar");
                 break;
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 123) {
-            if (resultCode == RESULT_OK) {
-                System.out.println("requestCode" + requestCode);
-                Uri uri = data.getData();
-                System.out.println(uri.getPath());
 
-                ContentResolver cr = this.getContentResolver();
-                Bitmap bmp;
-                try {
-                    bmp = BitmapFactory.decodeStream(cr.openInputStream(uri));
-                    FileUtils.saveBitmap(this, bmp, FileUtils.getTargetsDir(this),
-                            String.valueOf(Math.random() * 10) + ".png");
-                } catch (FileNotFoundException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        }
-    }
 }

@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:2:1-29:12
+ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:2:1-31:12
 	xmlns:android
 		ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:2:11-69
 	package
@@ -26,7 +26,7 @@ ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\ma
 	android:name
 		ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:7:22-64
 application
-ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:9:5-27:19
+ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:9:5-29:19
 MERGED from [com.android.support:appcompat-v7:20.0.0] D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\AndroidManifest.xml:17:5-19
 MERGED from [com.android.support:support-v4:20.0.0] D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\AndroidManifest.xml:17:5-19
 	android:label
@@ -55,12 +55,16 @@ category#android.intent.category.LAUNCHER
 ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:20:17-77
 	android:name
 		ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:20:27-74
-activity#cn.easyar.samples.helloar.ar.ARActivity
-ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:23:9-26:20
-	android:screenOrientation
-		ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:25:13-50
+activity#cn.easyar.samples.helloar.manage.ManageActivity
+ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:23:9-24:20
 	android:name
-		ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:24:13-42
+		ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:23:19-56
+activity#cn.easyar.samples.helloar.ar.ARActivity
+ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:25:9-28:20
+	android:screenOrientation
+		ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:27:13-50
+	android:name
+		ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:26:13-42
 uses-sdk
 INJECTED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:20.0.0] D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\AndroidManifest.xml:16:5-42

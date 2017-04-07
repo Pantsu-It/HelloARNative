@@ -18,6 +18,7 @@ extern "C" {
     JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeResizeGL(JNIEnv* env, jobject object, jint w, jint h));
     JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeRender(JNIEnv* env, jobject obj));
     JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeRotationChange(JNIEnv* env, jobject obj, jboolean portrait));
+    JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeLoadTarget(JNIEnv* env, jobject obj, jstring path));
 };
 
 namespace EasyAR {
@@ -86,9 +87,10 @@ JNIEXPORT jboolean JNICALL JNIFUNCTION_NATIVE(nativeInit(JNIEnv*, jobject))
 {
     bool status = ar.initCamera();
     ar.loadFromImage("namecard.jpg");
-    ar.loadFromJsonFile("targets.json", "argame");
-    ar.loadFromJsonFile("targets.json", "idback");
-    ar.loadAllFromJsonFile("targets2.json");
+//    ar.loadFromJsonFile("targets.json", "argame");
+//    ar.loadFromJsonFile("targets.json", "idback");
+//    ar.loadFromJsonFile("targets2.json", "my_target");
+//    ar.loadAllFromJsonFile("targets2.json");
     status &= ar.start();
     return status;
 }
@@ -116,4 +118,10 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeRender(JNIEnv*, jobject))
 JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeRotationChange(JNIEnv*, jobject, jboolean portrait))
 {
     ar.setPortrait(portrait);
+}
+
+JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeLoadTarget(JNIEnv* env, jobject, jstring path))
+{
+    std::string str = env->GetStringUTFChars(path, false);
+    ar.loadFromImage(str);
 }

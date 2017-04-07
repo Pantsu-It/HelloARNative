@@ -17,7 +17,20 @@ public class FileUtils {
 
 
     public static File getTargetsDir(Context context) {
-        return context.getDir("targets", Context.MODE_PRIVATE);
+        return context.getExternalFilesDir("targets");
+    }
+
+    public static String getPostfix(String filePath) {
+        String[] splits = filePath.split("\\.");
+        return splits[splits.length - 1];
+    }
+
+    public static String getTargetFileName(String filePath) {
+        return "t" + System.currentTimeMillis() + "." + getPostfix(filePath);
+    }
+
+    public static String getSrcFileName(String filePath) {
+        return "s" + System.currentTimeMillis() + "." + getPostfix(filePath);
     }
 
     public static Intent selectImage(Context context) {
@@ -37,10 +50,20 @@ public class FileUtils {
         return intent;
     }
 
+    public static Intent selectFile(Context context) {
+//        Intent intent=new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//        context.startActivity(intent);
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
+        intent.setType("*/*");    //这个参数是确定要选择的内容为图片，
+        intent.putExtra("crop", "circle");   //设置了参数，就会调用裁剪，如果不设置，就会跳过裁剪的过程。
+        intent.putExtra("return-data", true);  //是否要返回值。 一般都要。我第一次忘加了，总是取得空值，囧！
+        return intent;
+    }
+
     public static File saveBitmap(Context context, Bitmap bitmap, File dir, String fileName) {
         File f = new File(dir, fileName);
         try {
-            if(f.exists()) {
+            if (f.exists()) {
                 f.delete();
                 f.createNewFile();
             }
