@@ -11,13 +11,13 @@
                     "endOffset": 158
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-zu\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
                     "position": {
-                        "startLine": 3,
+                        "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 56,
+                        "startOffset": 55,
                         "endColumn": 107,
-                        "endOffset": 159
+                        "endOffset": 158
                     }
                 }
             },
@@ -26,16 +26,16 @@
                     "startLine": 3,
                     "startColumn": 4,
                     "startOffset": 163,
-                    "endColumn": 106,
-                    "endOffset": 265
+                    "endColumn": 107,
+                    "endOffset": 266
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-zu\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
                     "position": {
-                        "startLine": 4,
+                        "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 164,
-                        "endColumn": 106,
+                        "startOffset": 163,
+                        "endColumn": 107,
                         "endOffset": 266
                     }
                 }
@@ -44,18 +44,18 @@
                 "to": {
                     "startLine": 4,
                     "startColumn": 4,
-                    "startOffset": 270,
-                    "endColumn": 113,
-                    "endOffset": 379
+                    "startOffset": 271,
+                    "endColumn": 122,
+                    "endOffset": 389
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-zu\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 4,
                         "startColumn": 4,
                         "startOffset": 271,
-                        "endColumn": 113,
-                        "endOffset": 380
+                        "endColumn": 122,
+                        "endOffset": 389
                     }
                 }
             },
@@ -63,18 +63,18 @@
                 "to": {
                     "startLine": 5,
                     "startColumn": 4,
-                    "startOffset": 384,
-                    "endColumn": 87,
-                    "endOffset": 467
+                    "startOffset": 394,
+                    "endColumn": 106,
+                    "endOffset": 496
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-zu\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
                     "position": {
-                        "startLine": 6,
+                        "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 385,
-                        "endColumn": 87,
-                        "endOffset": 468
+                        "startOffset": 394,
+                        "endColumn": 106,
+                        "endOffset": 496
                     }
                 }
             },
@@ -82,18 +82,18 @@
                 "to": {
                     "startLine": 6,
                     "startColumn": 4,
-                    "startOffset": 472,
-                    "endColumn": 102,
-                    "endOffset": 570
+                    "startOffset": 501,
+                    "endColumn": 113,
+                    "endOffset": 610
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-zu\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
                     "position": {
-                        "startLine": 7,
+                        "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 473,
-                        "endColumn": 102,
-                        "endOffset": 571
+                        "startOffset": 501,
+                        "endColumn": 113,
+                        "endOffset": 610
                     }
                 }
             },
@@ -101,17 +101,17 @@
                 "to": {
                     "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 575,
-                    "endColumn": 126,
-                    "endOffset": 697
+                    "startOffset": 615,
+                    "endColumn": 87,
+                    "endOffset": 698
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-zu\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
                     "position": {
-                        "startLine": 8,
+                        "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 576,
-                        "endColumn": 126,
+                        "startOffset": 615,
+                        "endColumn": 87,
                         "endOffset": 698
                     }
                 }
@@ -120,18 +120,18 @@
                 "to": {
                     "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 702,
-                    "endColumn": 103,
+                    "startOffset": 703,
+                    "endColumn": 102,
                     "endOffset": 801
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-zu\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
                     "position": {
-                        "startLine": 9,
+                        "startLine": 8,
                         "startColumn": 4,
                         "startOffset": 703,
-                        "endColumn": 103,
-                        "endOffset": 802
+                        "endColumn": 102,
+                        "endOffset": 801
                     }
                 }
             },
@@ -140,17 +140,17 @@
                     "startLine": 9,
                     "startColumn": 4,
                     "startOffset": 806,
-                    "endColumn": 105,
-                    "endOffset": 907
+                    "endColumn": 126,
+                    "endOffset": 928
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-zu\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
                     "position": {
-                        "startLine": 10,
+                        "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 807,
-                        "endColumn": 105,
-                        "endOffset": 908
+                        "startOffset": 806,
+                        "endColumn": 126,
+                        "endOffset": 928
                     }
                 }
             },
@@ -158,18 +158,18 @@
                 "to": {
                     "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 912,
-                    "endColumn": 97,
-                    "endOffset": 1005
+                    "startOffset": 933,
+                    "endColumn": 79,
+                    "endOffset": 1008
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-zu\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
                     "position": {
-                        "startLine": 11,
+                        "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 913,
-                        "endColumn": 97,
-                        "endOffset": 1006
+                        "startOffset": 933,
+                        "endColumn": 79,
+                        "endOffset": 1008
                     }
                 }
             },
@@ -177,18 +177,18 @@
                 "to": {
                     "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 1010,
-                    "endColumn": 106,
-                    "endOffset": 1112
+                    "startOffset": 1013,
+                    "endColumn": 79,
+                    "endOffset": 1088
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-zu\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
                     "position": {
-                        "startLine": 12,
+                        "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 1011,
-                        "endColumn": 106,
-                        "endOffset": 1113
+                        "startOffset": 1013,
+                        "endColumn": 79,
+                        "endOffset": 1088
                     }
                 }
             },
@@ -196,18 +196,18 @@
                 "to": {
                     "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 1117,
-                    "endColumn": 105,
-                    "endOffset": 1218
+                    "startOffset": 1093,
+                    "endColumn": 85,
+                    "endOffset": 1174
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-zu\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
                     "position": {
-                        "startLine": 13,
+                        "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 1118,
-                        "endColumn": 105,
-                        "endOffset": 1219
+                        "startOffset": 1093,
+                        "endColumn": 85,
+                        "endOffset": 1174
                     }
                 }
             },
@@ -215,18 +215,18 @@
                 "to": {
                     "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 1223,
-                    "endColumn": 105,
-                    "endOffset": 1324
+                    "startOffset": 1179,
+                    "endColumn": 103,
+                    "endOffset": 1278
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-zu\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
                     "position": {
-                        "startLine": 14,
+                        "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 1224,
-                        "endColumn": 105,
-                        "endOffset": 1325
+                        "startOffset": 1179,
+                        "endColumn": 103,
+                        "endOffset": 1278
                     }
                 }
             },
@@ -234,18 +234,151 @@
                 "to": {
                     "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 1329,
-                    "endColumn": 119,
-                    "endOffset": 1444
+                    "startOffset": 1283,
+                    "endColumn": 105,
+                    "endOffset": 1384
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-zu\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1283,
+                        "endColumn": 105,
+                        "endOffset": 1384
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1389,
+                    "endColumn": 97,
+                    "endOffset": 1482
+                },
+                "from": {
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 1330,
+                        "startOffset": 1389,
+                        "endColumn": 97,
+                        "endOffset": 1482
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1487,
+                    "endColumn": 106,
+                    "endOffset": 1589
+                },
+                "from": {
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1487,
+                        "endColumn": 106,
+                        "endOffset": 1589
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1594,
+                    "endColumn": 105,
+                    "endOffset": 1695
+                },
+                "from": {
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1594,
+                        "endColumn": 105,
+                        "endOffset": 1695
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1700,
+                    "endColumn": 105,
+                    "endOffset": 1801
+                },
+                "from": {
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1700,
+                        "endColumn": 105,
+                        "endOffset": 1801
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1806,
+                    "endColumn": 119,
+                    "endOffset": 1921
+                },
+                "from": {
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1806,
                         "endColumn": 119,
-                        "endOffset": 1445
+                        "endOffset": 1921
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1926,
+                    "endColumn": 95,
+                    "endOffset": 2017
+                },
+                "from": {
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1926,
+                        "endColumn": 95,
+                        "endOffset": 2017
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 2022,
+                    "endColumn": 100,
+                    "endOffset": 2118
+                },
+                "from": {
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-zu\\values-zu.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 2022,
+                        "endColumn": 100,
+                        "endOffset": 2118
                     }
                 }
             }

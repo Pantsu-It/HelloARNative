@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="AR中心">
+        <menu>
+            <item
+                android:id="@+id/nav_scan"
+                android:icon="@android:drawable/ic_menu_manage"
+                android:title="扫描你的AR目标" />
+        </menu>
+    </item>
+
+    <item android:title="AR-Binder">
+        <menu>
+            <item
+                android:id="@+id/nav_recycle_1"
+                android:icon="@android:drawable/ic_input_add"
+                android:title="管理你的AR绑定" />
+            <item
+                android:id="@+id/nav_recycle_2"
+                android:icon="@android:drawable/ic_menu_gallery"
+                android:title="编辑你的AR绑定" />
+        </menu>
+    </item>
+
+
+    <item android:title="AR素材库">
+        <menu>
+            <item
+                android:id="@+id/nav_manage_target"
+                android:icon="@android:drawable/ic_menu_share"
+                android:title="管理AR目标" />
+            <item
+                android:id="@+id/nav_manage_render"
+                android:icon="@android:drawable/ic_menu_send"
+                android:title="管理AR渲染物" />
+        </menu>
+    </item>
+
+    <item android:title="OtherItem">
+        <menu>
+            <item
+                android:id="@+id/other"
+                android:icon="@android:drawable/ic_dialog_alert"
+                android:title="Another Banana" />
+        </menu>
+    </item>
+
+</menu>

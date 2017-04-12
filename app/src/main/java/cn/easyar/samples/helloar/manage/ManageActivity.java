@@ -1,6 +1,7 @@
 package cn.easyar.samples.helloar.manage;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +9,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import java.io.File;
@@ -22,7 +27,7 @@ import cn.easyar.samples.helloar.tool.FileUtils;
 /**
  * Created by Pants on 2017/4/7.
  */
-public class ManageActivity extends Activity {
+public class ManageActivity extends Fragment {
 
     public static final int REQUEST_TARGET = 0x11;
     public static final int REQUEST_SRC = 0x12;
@@ -32,15 +37,14 @@ public class ManageActivity extends Activity {
 
     Target target = new Target();
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View mRootView = inflater.inflate(R.layout.activity_manage, container, false);
+        targetView = (ImageView) mRootView.findViewById(R.id.iv_target);
+        srcView = (ImageView) mRootView.findViewById(R.id.iv_src);
 
-        targetView = (ImageView) findViewById(R.id.iv_target);
-        srcView = (ImageView) findViewById(R.id.iv_src);
-
-        Target target2 = ManageModel.getInstance(this).getTarget();
+        Target target2 = ManageModel.getInstance(getActivity()).getTarget();
         if(target2 != null) {
             target = target2;
             if(target.getImage() != null) {
@@ -54,7 +58,7 @@ public class ManageActivity extends Activity {
         targetView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = FileUtils.selectImage(ManageActivity.this);
+                Intent intent = FileUtils.selectImage(getActivity());
                 startActivityForResult(intent, REQUEST_TARGET);
             }
         });
@@ -62,31 +66,32 @@ public class ManageActivity extends Activity {
         srcView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = FileUtils.selectImage(ManageActivity.this);
+                Intent intent = FileUtils.selectImage(getActivity());
                 startActivityForResult(intent, REQUEST_SRC);
             }
         });
 
+        return mRootView;
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode != RESULT_OK) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode != Activity.RESULT_OK) {
             return;
         }
         if (requestCode == REQUEST_TARGET) {
             Uri uri = data.getData();
             System.out.println(uri.getPath());
 
-            ContentResolver cr = this.getContentResolver();
+            ContentResolver cr = getActivity().getContentResolver();
             Bitmap bmp;
             try {
                 bmp = BitmapFactory.decodeStream(cr.openInputStream(uri));
-                File file = FileUtils.saveBitmap(this, bmp, FileUtils.getTargetsDir(this),
+                File file = FileUtils.saveBitmap(getActivity(), bmp, FileUtils.getTargetsDir(getActivity()),
                         FileUtils.getTargetFileName(uri.getPath()));
                 targetView.setImageURI(Uri.fromFile(file));
                 target.setImage(file.getAbsolutePath());
-                ManageModel.getInstance(this).saveTarget(target);
+                ManageModel.getInstance(getActivity()).saveTarget(target);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -94,23 +99,22 @@ public class ManageActivity extends Activity {
             Uri uri = data.getData();
             System.out.println(uri.getPath());
 
-            ContentResolver cr = this.getContentResolver();
+            ContentResolver cr = getActivity().getContentResolver();
             Bitmap bmp;
             try {
                 bmp = BitmapFactory.decodeStream(cr.openInputStream(uri));
-                File file = FileUtils.saveBitmap(this, bmp, FileUtils.getTargetsDir(this),
+                File file = FileUtils.saveBitmap(getActivity(), bmp, FileUtils.getTargetsDir(getActivity()),
                         FileUtils.getSrcFileName(uri.getPath()));
                 srcView.setImageURI(Uri.fromFile(file));
                 target.setSrc(SrcType.TYPE_IMAGE, file.getAbsolutePath());
-                ManageModel.getInstance(this).saveTarget(target);
+                ManageModel.getInstance(getActivity()).saveTarget(target);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public static Intent getIntent(Context context) {
-        Intent intent = new Intent(context, ManageActivity.class);
-        return intent;
+    public static Fragment newInstance() {
+        return new ManageActivity();
     }
 }

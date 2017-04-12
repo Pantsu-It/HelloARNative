@@ -1,6 +1,50 @@
 [
     {
+        "merged": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\res\\merged\\arm\\debug\\color\\switch_thumb_material_dark.xml",
+        "source": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color\\switch_thumb_material_dark.xml"
+    },
+    {
         "merged": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\res\\merged\\arm\\debug\\color\\abc_search_url_text_holo.xml",
         "source": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\color\\abc_search_url_text_holo.xml"
+    },
+    {
+        "merged": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\res\\merged\\arm\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\res\\merged\\arm\\debug\\color\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color\\abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\res\\merged\\arm\\debug\\color\\abc_primary_text_material_dark.xml",
+        "source": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color\\abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\res\\merged\\arm\\debug\\color\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color\\abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\res\\merged\\arm\\debug\\color\\abc_secondary_text_material_dark.xml",
+        "source": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color\\abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\res\\merged\\arm\\debug\\color\\switch_thumb_material_light.xml",
+        "source": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\res\\merged\\arm\\debug\\color\\abc_secondary_text_material_light.xml",
+        "source": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color\\abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\res\\merged\\arm\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
+        "source": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\res\\merged\\arm\\debug\\color\\abc_primary_text_material_light.xml",
+        "source": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\res\\merged\\arm\\debug\\color\\abc_search_url_text.xml",
+        "source": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\color\\abc_search_url_text.xml"
     }
 ]

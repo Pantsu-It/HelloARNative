@@ -11,13 +11,13 @@
                     "endOffset": 154
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-iw\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
                     "position": {
-                        "startLine": 3,
+                        "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 56,
+                        "startOffset": 55,
                         "endColumn": 103,
-                        "endOffset": 155
+                        "endOffset": 154
                     }
                 }
             },
@@ -26,17 +26,17 @@
                     "startLine": 3,
                     "startColumn": 4,
                     "startOffset": 159,
-                    "endColumn": 98,
-                    "endOffset": 253
+                    "endColumn": 109,
+                    "endOffset": 264
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-iw\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
                     "position": {
-                        "startLine": 4,
+                        "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 160,
-                        "endColumn": 98,
-                        "endOffset": 254
+                        "startOffset": 159,
+                        "endColumn": 109,
+                        "endOffset": 264
                     }
                 }
             },
@@ -44,18 +44,18 @@
                 "to": {
                     "startLine": 4,
                     "startColumn": 4,
-                    "startOffset": 258,
-                    "endColumn": 107,
-                    "endOffset": 361
+                    "startOffset": 269,
+                    "endColumn": 125,
+                    "endOffset": 390
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-iw\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 259,
-                        "endColumn": 107,
-                        "endOffset": 362
+                        "startOffset": 269,
+                        "endColumn": 125,
+                        "endOffset": 390
                     }
                 }
             },
@@ -63,18 +63,18 @@
                 "to": {
                     "startLine": 5,
                     "startColumn": 4,
-                    "startOffset": 366,
-                    "endColumn": 83,
-                    "endOffset": 445
+                    "startOffset": 395,
+                    "endColumn": 98,
+                    "endOffset": 489
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-iw\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
                     "position": {
-                        "startLine": 6,
+                        "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 367,
-                        "endColumn": 83,
-                        "endOffset": 446
+                        "startOffset": 395,
+                        "endColumn": 98,
+                        "endOffset": 489
                     }
                 }
             },
@@ -82,18 +82,18 @@
                 "to": {
                     "startLine": 6,
                     "startColumn": 4,
-                    "startOffset": 450,
-                    "endColumn": 100,
-                    "endOffset": 546
+                    "startOffset": 494,
+                    "endColumn": 107,
+                    "endOffset": 597
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-iw\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
                     "position": {
-                        "startLine": 7,
+                        "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 451,
-                        "endColumn": 100,
-                        "endOffset": 547
+                        "startOffset": 494,
+                        "endColumn": 107,
+                        "endOffset": 597
                     }
                 }
             },
@@ -101,18 +101,18 @@
                 "to": {
                     "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 551,
-                    "endColumn": 113,
-                    "endOffset": 660
+                    "startOffset": 602,
+                    "endColumn": 83,
+                    "endOffset": 681
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-iw\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
                     "position": {
-                        "startLine": 8,
+                        "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 552,
-                        "endColumn": 113,
-                        "endOffset": 661
+                        "startOffset": 602,
+                        "endColumn": 83,
+                        "endOffset": 681
                     }
                 }
             },
@@ -120,18 +120,18 @@
                 "to": {
                     "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 665,
-                    "endColumn": 101,
-                    "endOffset": 762
+                    "startOffset": 686,
+                    "endColumn": 99,
+                    "endOffset": 781
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-iw\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
                     "position": {
-                        "startLine": 9,
+                        "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 666,
-                        "endColumn": 101,
-                        "endOffset": 763
+                        "startOffset": 686,
+                        "endColumn": 99,
+                        "endOffset": 781
                     }
                 }
             },
@@ -139,18 +139,18 @@
                 "to": {
                     "startLine": 9,
                     "startColumn": 4,
-                    "startOffset": 767,
-                    "endColumn": 103,
-                    "endOffset": 866
+                    "startOffset": 786,
+                    "endColumn": 113,
+                    "endOffset": 895
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-iw\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
                     "position": {
-                        "startLine": 10,
+                        "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 768,
-                        "endColumn": 103,
-                        "endOffset": 867
+                        "startOffset": 786,
+                        "endColumn": 113,
+                        "endOffset": 895
                     }
                 }
             },
@@ -158,18 +158,18 @@
                 "to": {
                     "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 871,
-                    "endColumn": 95,
-                    "endOffset": 962
+                    "startOffset": 900,
+                    "endColumn": 77,
+                    "endOffset": 973
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-iw\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
                     "position": {
-                        "startLine": 11,
+                        "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 872,
-                        "endColumn": 95,
-                        "endOffset": 963
+                        "startOffset": 900,
+                        "endColumn": 77,
+                        "endOffset": 973
                     }
                 }
             },
@@ -177,18 +177,18 @@
                 "to": {
                     "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 967,
-                    "endColumn": 102,
-                    "endOffset": 1065
+                    "startOffset": 978,
+                    "endColumn": 77,
+                    "endOffset": 1051
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-iw\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
                     "position": {
-                        "startLine": 12,
+                        "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 968,
-                        "endColumn": 102,
-                        "endOffset": 1066
+                        "startOffset": 978,
+                        "endColumn": 77,
+                        "endOffset": 1051
                     }
                 }
             },
@@ -196,18 +196,18 @@
                 "to": {
                     "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 1070,
-                    "endColumn": 100,
-                    "endOffset": 1166
+                    "startOffset": 1056,
+                    "endColumn": 78,
+                    "endOffset": 1130
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-iw\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
                     "position": {
-                        "startLine": 13,
+                        "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 1071,
-                        "endColumn": 100,
-                        "endOffset": 1167
+                        "startOffset": 1056,
+                        "endColumn": 78,
+                        "endOffset": 1130
                     }
                 }
             },
@@ -215,18 +215,18 @@
                 "to": {
                     "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 1171,
-                    "endColumn": 99,
-                    "endOffset": 1266
+                    "startOffset": 1135,
+                    "endColumn": 101,
+                    "endOffset": 1232
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-iw\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
                     "position": {
-                        "startLine": 14,
+                        "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 1172,
-                        "endColumn": 99,
-                        "endOffset": 1267
+                        "startOffset": 1135,
+                        "endColumn": 101,
+                        "endOffset": 1232
                     }
                 }
             },
@@ -234,18 +234,151 @@
                 "to": {
                     "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 1271,
-                    "endColumn": 115,
-                    "endOffset": 1382
+                    "startOffset": 1237,
+                    "endColumn": 103,
+                    "endOffset": 1336
                 },
                 "from": {
-                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\values-iw\\values.xml",
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1237,
+                        "endColumn": 103,
+                        "endOffset": 1336
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1341,
+                    "endColumn": 95,
+                    "endOffset": 1432
+                },
+                "from": {
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 1272,
+                        "startOffset": 1341,
+                        "endColumn": 95,
+                        "endOffset": 1432
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1437,
+                    "endColumn": 102,
+                    "endOffset": 1535
+                },
+                "from": {
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1437,
+                        "endColumn": 102,
+                        "endOffset": 1535
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1540,
+                    "endColumn": 100,
+                    "endOffset": 1636
+                },
+                "from": {
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1540,
+                        "endColumn": 100,
+                        "endOffset": 1636
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1641,
+                    "endColumn": 99,
+                    "endOffset": 1736
+                },
+                "from": {
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1641,
+                        "endColumn": 99,
+                        "endOffset": 1736
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1741,
+                    "endColumn": 115,
+                    "endOffset": 1852
+                },
+                "from": {
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1741,
                         "endColumn": 115,
-                        "endOffset": 1383
+                        "endOffset": 1852
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1857,
+                    "endColumn": 95,
+                    "endOffset": 1948
+                },
+                "from": {
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1857,
+                        "endColumn": 95,
+                        "endOffset": 1948
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1953,
+                    "endColumn": 102,
+                    "endOffset": 2051
+                },
+                "from": {
+                    "file": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-iw\\values-iw.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1953,
+                        "endColumn": 102,
+                        "endOffset": 2051
                     }
                 }
             }

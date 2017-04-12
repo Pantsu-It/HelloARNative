@@ -6,6 +6,7 @@
 
 package cn.easyar.samples.helloar.ar;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -22,7 +23,7 @@ import cn.easyar.samples.helloar.beans.Target;
 import cn.easyar.samples.helloar.manage.ManageModel;
 
 
-public class ARActivity extends ActionBarActivity {
+public class ARActivity extends Activity {
 
     static {
         System.loadLibrary("EasyAR");
@@ -72,23 +73,6 @@ public class ARActivity extends ActionBarActivity {
     protected void onPause() {
         super.onPause();
         EasyAR.onPause();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     public static Intent getIntent(Context context) {
