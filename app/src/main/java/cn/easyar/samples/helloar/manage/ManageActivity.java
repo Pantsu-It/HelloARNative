@@ -40,8 +40,9 @@ public class ManageActivity extends Activity {
         targetView = (ImageView) findViewById(R.id.iv_target);
         srcView = (ImageView) findViewById(R.id.iv_src);
 
-        target = ManageModel.getInstance(this).getTarget();
-        if(target != null) {
+        Target target2 = ManageModel.getInstance(this).getTarget();
+        if(target2 != null) {
+            target = target2;
             if(target.getImage() != null) {
                 targetView.setImageURI(Uri.fromFile(new File(target.getImage())));
             }
