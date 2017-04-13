@@ -11,11 +11,13 @@ import android.view.MenuItem;
 
 import cn.easyar.samples.helloar.R;
 import cn.easyar.samples.helloar.ar.ARActivity;
-import cn.easyar.samples.helloar.manage.ManageActivity;
+import cn.easyar.samples.helloar.main.ar_detail.BinderDetailFragment;
 
 
 public class MainActivity extends Activity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    public static MainActivity _instance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,14 @@ public class MainActivity extends Activity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        replaceFragment(ManageActivity.newInstance());
+        _instance = this;
+        replaceFragment(BinderDetailFragment.newInstance(BinderDetailFragment.ACTION_ADD));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        _instance = null;
     }
 
     @Override
@@ -43,8 +52,15 @@ public class MainActivity extends Activity
     public boolean onNavigationItemSelected(MenuItem item) {
         Fragment fragment = null;
         int id = item.getItemId();
-        if (id == R.id.nav_scan) {
-            startActivity(ARActivity.getIntent(this));
+        switch (id) {
+            case R.id.nav_scan:
+                startActivity(ARActivity.getIntent(this));
+                break;
+            case R.id.nav_binder_detail:
+                fragment = BinderDetailFragment.newInstance(BinderDetailFragment.ACTION_ADD);
+                break;
+            case R.id.nav_binder_manage:
+                break;
         }
         if (fragment != null) {
             replaceFragment(fragment);

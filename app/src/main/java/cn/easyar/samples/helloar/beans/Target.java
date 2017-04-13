@@ -1,46 +1,36 @@
 package cn.easyar.samples.helloar.beans;
 
 /**
- * Created by Pants on 2017/4/7.
+ * Created by Pants on 2017/4/13.
  */
 public class Target {
 
-    private String image;
-    private int srcType;
-    private String srcUrl;
+    private int targetId;
+    private String imgUri;
 
-    public Target() {
-        srcType = -1;
+    public Target(String imgUri) {
+        targetId = -1;
+        this.imgUri = imgUri;
     }
 
-    public Target(String image, int srcType, String srcUrl) {
-        this.image = image;
-        this.srcType = srcType;
-        this.srcUrl = srcUrl;
+    public Target(int targetId, String imgUri) {
+        this.targetId = targetId;
+        this.imgUri = imgUri;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public int getTargetId() {
+        return targetId;
     }
 
-    public void setSrc(int srcType, String srcUrl) {
-        this.srcType = srcType;
-        this.srcUrl = srcUrl;
+    public void setTargetId(int targetId) {
+        this.targetId = targetId;
     }
 
-    public boolean isValid() {
-        return image != null && srcType != -1 && srcUrl != null;
+    public String getImgUri() {
+        return imgUri;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public int getSrcType() {
-        return srcType;
-    }
-
-    public String getSrcUrl() {
-        return srcUrl;
+    public void setImgUri(String imgUri) {
+        this.imgUri = imgUri;
     }
 }

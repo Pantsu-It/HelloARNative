@@ -13,12 +13,14 @@
     <item android:title="AR-Binder">
         <menu>
             <item
-                android:id="@+id/nav_recycle_1"
+                android:id="@+id/nav_binder_manage"
                 android:icon="@android:drawable/ic_input_add"
+                android:checkable="true"
                 android:title="管理你的AR绑定" />
             <item
-                android:id="@+id/nav_recycle_2"
+                android:id="@+id/nav_binder_detail"
                 android:icon="@android:drawable/ic_menu_gallery"
+                android:checkable="true"
                 android:title="编辑你的AR绑定" />
         </menu>
     </item>
@@ -29,10 +31,12 @@
             <item
                 android:id="@+id/nav_manage_target"
                 android:icon="@android:drawable/ic_menu_share"
+                android:checkable="true"
                 android:title="管理AR目标" />
             <item
                 android:id="@+id/nav_manage_render"
                 android:icon="@android:drawable/ic_menu_send"
+                android:checkable="true"
                 android:title="管理AR渲染物" />
         </menu>
     </item>

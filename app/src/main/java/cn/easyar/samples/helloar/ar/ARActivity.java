@@ -11,16 +11,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
 import cn.easyar.engine.EasyAR;
 import cn.easyar.samples.helloar.R;
-import cn.easyar.samples.helloar.beans.Target;
-import cn.easyar.samples.helloar.manage.ManageModel;
+import cn.easyar.samples.helloar.beans.Binder;
+import cn.easyar.samples.helloar.main.ar_manage.ManageModel;
 
 
 public class ARActivity extends Activity {
@@ -45,9 +42,9 @@ public class ARActivity extends Activity {
         ((ViewGroup) findViewById(R.id.preview)).addView(glView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         ARModel.nativeRotationChange(getWindowManager().getDefaultDisplay().getRotation() == android.view.Surface.ROTATION_0);
 
-        Target target = ManageModel.getInstance(this).getTarget();
-        if (target != null && target.getImage() != null) {
-            ARModel.nativeLoadTarget(target.getImage());
+        Binder target = ManageModel.getInstance(this).getTarget();
+        if (target != null && target.getTarget() != null) {
+            ARModel.nativeLoadTarget(target.getTarget().getImgUri());
         }
     }
 
