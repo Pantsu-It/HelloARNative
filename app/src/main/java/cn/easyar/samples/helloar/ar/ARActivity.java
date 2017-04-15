@@ -17,7 +17,7 @@ import android.view.WindowManager;
 import cn.easyar.engine.EasyAR;
 import cn.easyar.samples.helloar.R;
 import cn.easyar.samples.helloar.beans.Binder;
-import cn.easyar.samples.helloar.main.ar_manage.ManageModel;
+import cn.easyar.samples.helloar.main.binder_manage.ManageModel;
 
 
 public class ARActivity extends Activity {

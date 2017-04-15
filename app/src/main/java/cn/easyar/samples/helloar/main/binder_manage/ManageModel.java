@@ -1,4 +1,4 @@
-package cn.easyar.samples.helloar.main.ar_manage;
+package cn.easyar.samples.helloar.main.binder_manage;
 
 import android.content.Context;
 

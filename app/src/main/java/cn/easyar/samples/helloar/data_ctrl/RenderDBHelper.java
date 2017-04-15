@@ -28,14 +28,15 @@ public class RenderDBHelper {
     private ContentValues objectToValues(Render render) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(columnRenderId, render.getRenderId());
+        contentValues.put(columnRenderUri, render.getFileUri());
         contentValues.put(columnRenderType, render.getType());
         return contentValues;
     }
 
     private Render cursorToObject(Cursor cursor) {
-        int renderId = cursor.getInt(cursor.getColumnIndex("render_id"));
-        String renderUri = cursor.getString(cursor.getColumnIndex("render_uri"));
-        int renderType = cursor.getInt(cursor.getColumnIndex("render_type"));
+        int renderId = cursor.getInt(cursor.getColumnIndex(columnRenderId));
+        String renderUri = cursor.getString(cursor.getColumnIndex(columnRenderUri));
+        int renderType = cursor.getInt(cursor.getColumnIndex(columnRenderType));
 
         Render render = new Render(renderId, renderUri, renderType);
         return render;
@@ -65,6 +66,18 @@ public class RenderDBHelper {
 //        return null;
 //    }
 
+    public List<Render> queryByType(int type) {
+        Cursor cursor = mDatabase.rawQuery("select * from render where render_type=?", new String[]{type + ""});
+        List<Render> renders = new ArrayList<>(cursor.getCount());
+        if (cursor.moveToFirst()) {
+            do {
+                Render render = cursorToObject(cursor);
+                renders.add(render);
+            } while (cursor.moveToNext());
+        }
+        return renders;
+    }
+
     public List<Render> queryAll() {
         Cursor cursor = mDatabase.rawQuery("select * from render", null);
         List<Render> renders = new ArrayList<>(cursor.getCount());
@@ -76,5 +89,5 @@ public class RenderDBHelper {
         }
         return renders;
     }
-    
+
 }

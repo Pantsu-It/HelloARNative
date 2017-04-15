@@ -1,9 +1,11 @@
 package cn.easyar.samples.helloar.beans.render;
 
+import java.io.Serializable;
+
 /**
  * Created by Pants on 2017/4/13.
  */
-public class Render {
+public class Render implements Serializable {
 
     private int renderId;
     private String fileUri;

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <cn.easyar.samples.helloar.view.CommonTitleView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="渲染文本："
+                android:textColor="#777777"
+                android:textSize="14dp" />
+
+            <GridView
+                android:id="@+id/gridViewText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="12dp"
+                android:horizontalSpacing="6dp"
+                android:verticalSpacing="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="渲染图片："
+                android:textColor="#777777"
+                android:textSize="14dp" />
+
+            <GridView
+                android:id="@+id/gridViewImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="12dp"
+                android:horizontalSpacing="6dp"
+                android:verticalSpacing="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="渲染视频："
+                android:textColor="#777777"
+                android:textSize="14dp" />
+
+            <GridView
+                android:id="@+id/gridViewVideo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="12dp"
+                android:horizontalSpacing="6dp"
+                android:verticalSpacing="6dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

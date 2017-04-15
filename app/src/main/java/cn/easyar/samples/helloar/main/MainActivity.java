@@ -11,7 +11,10 @@ import android.view.MenuItem;
 
 import cn.easyar.samples.helloar.R;
 import cn.easyar.samples.helloar.ar.ARActivity;
-import cn.easyar.samples.helloar.main.ar_detail.BinderDetailFragment;
+import cn.easyar.samples.helloar.main.binder_detail.BinderDetailFragment;
+import cn.easyar.samples.helloar.main.render_manage.RenderManageFragment;
+import cn.easyar.samples.helloar.main.target_manage.TargetManageFragment;
+import cn.easyar.samples.helloar.tool.XUtils;
 
 
 public class MainActivity extends Activity
@@ -24,10 +27,12 @@ public class MainActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        _instance = this;
+        XUtils.init(getApplicationContext());
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        _instance = this;
         replaceFragment(BinderDetailFragment.newInstance(BinderDetailFragment.ACTION_ADD));
     }
 
@@ -56,10 +61,16 @@ public class MainActivity extends Activity
             case R.id.nav_scan:
                 startActivity(ARActivity.getIntent(this));
                 break;
+            case R.id.nav_binder_manage:
+                break;
             case R.id.nav_binder_detail:
                 fragment = BinderDetailFragment.newInstance(BinderDetailFragment.ACTION_ADD);
                 break;
-            case R.id.nav_binder_manage:
+            case R.id.nav_target_manage:
+                fragment = TargetManageFragment.newInstance(TargetManageFragment.ACTION_MANAGE);
+                break;
+            case R.id.nav_render_manage:
+                fragment = RenderManageFragment.newInstance(TargetManageFragment.ACTION_MANAGE);
                 break;
         }
         if (fragment != null) {
@@ -71,10 +82,10 @@ public class MainActivity extends Activity
         return true;
     }
 
-    private void replaceFragment(Fragment fragment) {
+    public void replaceFragment(Fragment fragment) {
         getFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, fragment)
-                .commit();
+                .commitAllowingStateLoss();
     }
 
     @Override

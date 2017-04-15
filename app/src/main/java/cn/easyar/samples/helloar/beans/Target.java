@@ -1,9 +1,11 @@
 package cn.easyar.samples.helloar.beans;
 
+import java.io.Serializable;
+
 /**
  * Created by Pants on 2017/4/13.
  */
-public class Target {
+public class Target implements Serializable{
 
     private int targetId;
     private String imgUri;

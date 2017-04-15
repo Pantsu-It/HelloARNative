@@ -29,12 +29,12 @@
     <item android:title="AR素材库">
         <menu>
             <item
-                android:id="@+id/nav_manage_target"
+                android:id="@+id/nav_target_manage"
                 android:icon="@android:drawable/ic_menu_share"
                 android:checkable="true"
                 android:title="管理AR目标" />
             <item
-                android:id="@+id/nav_manage_render"
+                android:id="@+id/nav_render_manage"
                 android:icon="@android:drawable/ic_menu_send"
                 android:checkable="true"
                 android:title="管理AR渲染物" />
