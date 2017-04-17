@@ -144,7 +144,7 @@ public class TargetManageFragment extends Fragment {
             try {
                 bmp = BitmapFactory.decodeStream(cr.openInputStream(uri));
                 File file = FileUtils.saveBitmap(getActivity(), bmp, FileUtils.getTargetsDir(getActivity()),
-                        FileUtils.getTargetFileName(uri.getPath()));
+                        FileUtils.getSrcFileName(uri.getPath()));
                 Target target = new Target(file.getAbsolutePath());
                 SimpleDBManager.getInstance(getActivity()).getTargetDBHelper().insert(target);
 

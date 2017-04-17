@@ -12,6 +12,7 @@ import java.util.List;
 import cn.easyar.samples.helloar.R;
 import cn.easyar.samples.helloar.beans.Target;
 import cn.easyar.samples.helloar.tool.FileUtils;
+import cn.easyar.samples.helloar.tool.ViewFactory;
 
 /**
  * Created by Pants on 2017/4/14.
@@ -55,8 +56,7 @@ public class TargetAdapter extends BaseAdapter {
         imageView = (ImageView) convertView;
 
         Target target = getItem(position);
-        Bitmap bitmap = FileUtils.decodeBitmapFromFile(target.getImgUri(), 200, 200);
-        imageView.setImageBitmap(bitmap);
+        ViewFactory.bindView(mContext, imageView, target);
         return imageView;
     }
 

@@ -8,18 +8,18 @@ import java.io.Serializable;
 public class Render implements Serializable {
 
     private int renderId;
-    private String fileUri;
+    private String content;
     private int type;
 
-    public Render(String fileUri, int type) {
+    public Render(String content, int type) {
         renderId = -1;
-        this.fileUri = fileUri;
+        this.content = content;
         this.type = type;
     }
 
     public Render(int renderId, String fileUri, int type) {
         this.renderId = renderId;
-        this.fileUri = fileUri;
+        this.content = fileUri;
         this.type = type;
     }
 
@@ -31,12 +31,12 @@ public class Render implements Serializable {
         this.renderId = renderId;
     }
 
-    public String getFileUri() {
-        return fileUri;
+    public String getContent() {
+        return content;
     }
 
-    public void setFileUri(String fileUri) {
-        this.fileUri = fileUri;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public int getType() {

@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import cn.easyar.samples.helloar.R;
 import cn.easyar.samples.helloar.ar.ARActivity;
 import cn.easyar.samples.helloar.main.binder_detail.BinderDetailFragment;
+import cn.easyar.samples.helloar.main.binder_manage.BinderManageFragment;
 import cn.easyar.samples.helloar.main.render_manage.RenderManageFragment;
 import cn.easyar.samples.helloar.main.target_manage.TargetManageFragment;
 import cn.easyar.samples.helloar.tool.XUtils;
@@ -33,7 +34,7 @@ public class MainActivity extends Activity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        replaceFragment(BinderDetailFragment.newInstance(BinderDetailFragment.ACTION_ADD));
+        replaceFragment(BinderManageFragment.newInstance());
     }
 
     @Override
@@ -62,6 +63,7 @@ public class MainActivity extends Activity
                 startActivity(ARActivity.getIntent(this));
                 break;
             case R.id.nav_binder_manage:
+                fragment = BinderManageFragment.newInstance();
                 break;
             case R.id.nav_binder_detail:
                 fragment = BinderDetailFragment.newInstance(BinderDetailFragment.ACTION_ADD);
@@ -82,7 +84,10 @@ public class MainActivity extends Activity
         return true;
     }
 
+    private Fragment curFragment;
+
     public void replaceFragment(Fragment fragment) {
+        curFragment = fragment;
         getFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, fragment)
                 .commitAllowingStateLoss();
@@ -90,9 +95,8 @@ public class MainActivity extends Activity
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode != Activity.RESULT_OK)
-            return;
+        if(curFragment != null) {
+            curFragment.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }

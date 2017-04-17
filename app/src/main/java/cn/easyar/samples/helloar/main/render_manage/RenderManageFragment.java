@@ -6,16 +6,19 @@ import android.app.Fragment;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputEditText;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -23,14 +26,14 @@ import java.io.Serializable;
 import java.util.List;
 
 import cn.easyar.samples.helloar.R;
-import cn.easyar.samples.helloar.beans.Target;
-import cn.easyar.samples.helloar.beans.render.ImageRender;
 import cn.easyar.samples.helloar.beans.render.Render;
+import cn.easyar.samples.helloar.beans.render.RenderFactory;
 import cn.easyar.samples.helloar.beans.render.RenderType;
 import cn.easyar.samples.helloar.data_ctrl.RenderDBHelper;
 import cn.easyar.samples.helloar.data_ctrl.SimpleDBManager;
 import cn.easyar.samples.helloar.main.target_manage.TargetAdapter;
 import cn.easyar.samples.helloar.tool.FileUtils;
+import cn.easyar.samples.helloar.tool.XUtils;
 import cn.easyar.samples.helloar.view.CommonTitleView;
 
 /**
@@ -84,8 +87,45 @@ public class RenderManageFragment extends Fragment {
         titleView.addRightAction(R.drawable.create, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = FileUtils.selectImage(getActivity());
-                startActivityForResult(intent, REQUEST_IMAGE);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setItems(new String[]{"文字", "图片", "视频"}, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0:
+                                final TextInputEditText editText = new TextInputEditText(getActivity());
+
+
+                                AlertDialog.Builder _builder = new AlertDialog.Builder(getActivity());
+                                _builder.setTitle("请输入文字：")
+                                        .setView(editText)
+                                        .setNegativeButton("取消", null)
+                                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                String inputText = editText.getText().toString().trim();
+                                                if (inputText.length() == 0) {
+                                                    XUtils.toast("文字内容无效");
+                                                    return;
+                                                }
+                                                Render render = RenderFactory.createText(inputText);
+                                                SimpleDBManager.getInstance(getActivity()).getRenderDBHelper().insert(render);
+
+                                                refreshView();
+                                            }
+                                        })
+                                        .create().show();
+                                break;
+                            case 1:
+                                startActivityForResult(FileUtils.selectImage(getActivity()), REQUEST_IMAGE);
+                                break;
+                            case 2:
+                                startActivityForResult(FileUtils.selectVideo(getActivity()), REQUEST_VIDEO);
+                                break;
+                        }
+                    }
+                });
+                builder.create().show();
             }
         });
     }
@@ -174,7 +214,6 @@ public class RenderManageFragment extends Fragment {
         }
         if (requestCode == REQUEST_IMAGE) {
             Uri uri = data.getData();
-            System.out.println(uri.getPath());
 
             ContentResolver cr = getActivity().getContentResolver();
             Bitmap bmp;
@@ -182,13 +221,26 @@ public class RenderManageFragment extends Fragment {
                 bmp = BitmapFactory.decodeStream(cr.openInputStream(uri));
                 File file = FileUtils.saveBitmap(getActivity(), bmp, FileUtils.getTargetsDir(getActivity()),
                         FileUtils.getTargetFileName(uri.getPath()));
-                Render render = new ImageRender(file.getAbsolutePath());
+                Render render = RenderFactory.createImage(file.getAbsolutePath());
                 SimpleDBManager.getInstance(getActivity()).getRenderDBHelper().insert(render);
 
                 refreshView();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
+        } else if (requestCode == REQUEST_VIDEO) {
+            Uri uri = data.getData();
+            Cursor cursor = getActivity().getContentResolver().query(uri, null, null, null, null);
+            cursor.moveToFirst();
+            // String imgNo = cursor.getString(0); // 图片编号
+            String v_path = cursor.getString(1); // 图片文件路径
+            String v_size = cursor.getString(2); // 图片大小
+            String v_name = cursor.getString(3); // 图片文件名
+
+            Render render = RenderFactory.createVideo(v_path);
+            SimpleDBManager.getInstance(getActivity()).getRenderDBHelper().insert(render);
+
+            refreshView();
         }
     }
 

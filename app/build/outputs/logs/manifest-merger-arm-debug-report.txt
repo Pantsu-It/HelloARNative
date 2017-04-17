@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:2:1-31:12
+ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:2:1-32:12
 	xmlns:android
 		ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:2:11-69
 	package
@@ -26,7 +26,7 @@ ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\ma
 	android:name
 		ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:7:22-64
 application
-ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:9:5-29:19
+ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:9:5-30:19
 MERGED from [com.android.support:appcompat-v7:23.2.1] D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:23.2.1] D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:animated-vector-drawable:23.2.1] D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
@@ -80,14 +80,18 @@ ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\ma
 		ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:26:13-50
 	android:name
 		ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:25:13-42
-activity#cn.easyar.samples.helloar.main.target_manage.TargetSelectActivity
+activity#cn.easyar.samples.helloar.main.binder_detail.BinderDetailActivity
 ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:27:9-86
 	android:name
 		ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:27:19-74
-activity#cn.easyar.samples.helloar.main.render_manage.RenderSelectActivity
+activity#cn.easyar.samples.helloar.main.target_manage.TargetSelectActivity
 ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:28:9-86
 	android:name
 		ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:28:19-74
+activity#cn.easyar.samples.helloar.main.render_manage.RenderSelectActivity
+ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:29:9-86
+	android:name
+		ADDED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml:29:19-74
 uses-sdk
 INJECTED from D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.2.1] D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:21:5-23:78

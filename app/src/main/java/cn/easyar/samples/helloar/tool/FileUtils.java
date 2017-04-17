@@ -52,13 +52,9 @@ public class FileUtils {
         return intent;
     }
 
-    public static Intent selectFile(Context context) {
-//        Intent intent=new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//        context.startActivity(intent);
+    public static Intent selectVideo(Context context) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
-        intent.setType("*/*");    //这个参数是确定要选择的内容为图片，
-        intent.putExtra("crop", "circle");   //设置了参数，就会调用裁剪，如果不设置，就会跳过裁剪的过程。
-        intent.putExtra("return-data", true);  //是否要返回值。 一般都要。我第一次忘加了，总是取得空值，囧！
+        intent.setType("video/*");    //这个参数是确定要选择的内容为图片，
         return intent;
     }
 

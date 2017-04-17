@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import cn.easyar.samples.helloar.R;
+import cn.easyar.samples.helloar.beans.Binder;
 import cn.easyar.samples.helloar.main.target_manage.TargetManageFragment;
 
 /**
@@ -20,7 +21,8 @@ public class BinderDetailActivity extends Activity {
         setContentView(R.layout.activity_for_fragment);
 
         int action = getIntent().getIntExtra(BinderDetailFragment.ARG_ACTION, BinderDetailFragment.ACTION_ADD);
-        Fragment fragment = BinderDetailFragment.newInstance(action);
+        Binder binder = (Binder) getIntent().getSerializableExtra(BinderDetailFragment.ARG_BINDER);
+        Fragment fragment = BinderDetailFragment.newInstance(action, binder);
         getFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, fragment)
                 .commitAllowingStateLoss();
@@ -31,4 +33,12 @@ public class BinderDetailActivity extends Activity {
         intent.putExtra(BinderDetailFragment.ARG_ACTION, action);
         return intent;
     }
+
+    public static Intent getIntent(Context context, int action, Binder binder) {
+        Intent intent = new Intent(context, BinderDetailActivity.class);
+        intent.putExtra(BinderDetailFragment.ARG_ACTION, action);
+        intent.putExtra(BinderDetailFragment.ARG_BINDER, binder);
+        return intent;
+    }
+
 }

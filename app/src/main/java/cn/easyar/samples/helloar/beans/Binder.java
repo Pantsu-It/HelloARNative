@@ -1,11 +1,13 @@
 package cn.easyar.samples.helloar.beans;
 
+import java.io.Serializable;
+
 import cn.easyar.samples.helloar.beans.render.Render;
 
 /**
  * Created by Pants on 2017/4/7.
  */
-public class Binder {
+public class Binder implements Serializable {
 
     private Target target;
     private Render render;

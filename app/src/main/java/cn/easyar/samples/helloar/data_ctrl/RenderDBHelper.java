@@ -27,8 +27,7 @@ public class RenderDBHelper {
 
     private ContentValues objectToValues(Render render) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(columnRenderId, render.getRenderId());
-        contentValues.put(columnRenderUri, render.getFileUri());
+        contentValues.put(columnRenderUri, render.getContent());
         contentValues.put(columnRenderType, render.getType());
         return contentValues;
     }

@@ -61,13 +61,12 @@ public class BinderDBHelper {
         return imfact;
     }
 
-    public void delete(Binder binder) {
-        mDatabase.delete(TABLE_NAME, "target_id=? & render_id=?",
-                new String[]{binder.getTarget().getTargetId() + "", binder.getRender().getRenderId() + ""});
+    public int delete(Binder binder) {
+        return delete(binder.getTarget());
     }
 
     public Binder query(Target target) {
-        Cursor cursor = mDatabase.rawQuery("select * from binder where target_id=?",
+        Cursor cursor = mDatabase.rawQuery("select * from binder natural join target natural join render where target_id=?",
                 new String[]{target.getTargetId() + ""});
         if (cursor.moveToFirst()) {
             return cursorToObject(cursor);
@@ -85,7 +84,7 @@ public class BinderDBHelper {
     }
 
     public List<Binder> queryAll() {
-        Cursor cursor = mDatabase.rawQuery("select * from binder", null);
+        Cursor cursor = mDatabase.rawQuery("select * from binder natural join target natural join render", null);
         List<Binder> binders = new ArrayList<>(cursor.getCount());
         if (cursor.moveToFirst()) {
             do {

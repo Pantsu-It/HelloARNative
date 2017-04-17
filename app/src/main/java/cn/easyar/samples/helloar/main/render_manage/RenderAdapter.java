@@ -13,6 +13,7 @@ import cn.easyar.samples.helloar.R;
 import cn.easyar.samples.helloar.beans.render.Render;
 import cn.easyar.samples.helloar.beans.render.RenderType;
 import cn.easyar.samples.helloar.tool.FileUtils;
+import cn.easyar.samples.helloar.tool.ViewFactory;
 
 /**
  * Created by Pants on 2017/4/14.
@@ -56,18 +57,7 @@ public class RenderAdapter extends BaseAdapter {
         imageView = (ImageView) convertView;
 
         Render render = getItem(position);
-        switch (render.getType()) {
-            case RenderType.TYPE_TEXT:
-                imageView.setImageResource(R.drawable.type_text);
-                break;
-            case RenderType.TYPE_IMAGE:
-                Bitmap bitmap = FileUtils.decodeBitmapFromFile(render.getFileUri(), 200, 200);
-                imageView.setImageBitmap(bitmap);
-                break;
-            case RenderType.TYPE_VIDEO:
-                imageView.setImageResource(R.drawable.type_video);
-                break;
-        }
+        ViewFactory.bindView(mContext, imageView, render);
         return imageView;
     }
 

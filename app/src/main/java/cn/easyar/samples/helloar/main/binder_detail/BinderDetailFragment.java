@@ -15,14 +15,13 @@ import android.widget.ImageView;
 import java.io.File;
 
 import cn.easyar.samples.helloar.R;
-import cn.easyar.samples.helloar.beans.Target;
 import cn.easyar.samples.helloar.beans.Binder;
+import cn.easyar.samples.helloar.beans.Target;
 import cn.easyar.samples.helloar.beans.render.Render;
 import cn.easyar.samples.helloar.beans.render.RenderType;
 import cn.easyar.samples.helloar.data_ctrl.SimpleDBManager;
 import cn.easyar.samples.helloar.main.MainActivity;
 import cn.easyar.samples.helloar.main.binder_manage.BinderManageFragment;
-import cn.easyar.samples.helloar.main.binder_manage.ManageModel;
 import cn.easyar.samples.helloar.main.render_manage.RenderManageFragment;
 import cn.easyar.samples.helloar.main.render_manage.RenderSelectActivity;
 import cn.easyar.samples.helloar.main.target_manage.TargetManageFragment;
@@ -42,30 +41,41 @@ public class BinderDetailFragment extends Fragment {
     public static final String ARG_ACTION = "arg_action";
     public static final int ACTION_ADD = 0x21;
     public static final int ACTION_EDIT = 0x22;
+    public static final String ARG_BINDER = "arg_binder";
+    public static final String ARG_FROM = "arg_from";
+    public static final int FROM_FRAGMENT = 0x31;
+    public static final int FROM_ACTIVITY = 0x32;
+
 
     private int action;
+    private Binder binder;
+    private int from;
 
     ImageView targetView;
     ImageView renderView;
-
-    Binder binder = new Binder(null, null);
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View mRootView = inflater.inflate(R.layout.fragment_binder_detail, container, false);
+
+        initData();
+        initTitle(mRootView);
+        initView(mRootView);
+
+        return mRootView;
+    }
+
+    private void initView(View mRootView) {
         targetView = (ImageView) mRootView.findViewById(R.id.iv_target);
         renderView = (ImageView) mRootView.findViewById(R.id.iv_src);
 
-        Binder target2 = ManageModel.getInstance(getActivity()).getTarget();
-        if (target2 != null) {
-            binder = target2;
-            if (binder.getTarget() != null) {
-                targetView.setImageURI(Uri.fromFile(new File(binder.getTarget().getImgUri())));
-            }
-            if (binder.getRender() != null) {
-                renderView.setImageURI(Uri.fromFile(new File(binder.getRender().getFileUri())));
-            }
+        if (binder.getTarget() != null) {
+            targetView.setImageURI(Uri.fromFile(new File(binder.getTarget().getImgUri())));
+        }
+        // TODO: 2017/4/16 Render多类型显示
+        if (binder.getRender() != null) {
+            renderView.setImageURI(Uri.fromFile(new File(binder.getRender().getContent())));
         }
 
         targetView.setOnClickListener(new View.OnClickListener() {
@@ -83,26 +93,24 @@ public class BinderDetailFragment extends Fragment {
                 startActivityForResult(intent, REQUEST_SRC);
             }
         });
-
-        initData();
-        initTitle(mRootView);
-
-        return mRootView;
     }
 
     private void initTitle(View rootView) {
         CommonTitleView titleView = (CommonTitleView) rootView.findViewById(R.id.title);
         // TODO: 2017/4/15 编辑和添加Binder的 界面跳转形式
-        if(action == ACTION_ADD) {
+        if (action == ACTION_ADD) {
             titleView.setTitle("添加AR绑定");
+        } else if (action == ACTION_EDIT) {
+            titleView.setTitle("编辑AR绑定");
+        }
+        if (from == FROM_FRAGMENT) {
             titleView.addLeftAction("返回", new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    getActivity().getFragmentManager().popBackStack();
+                    MainActivity._instance.replaceFragment(BinderManageFragment.newInstance());
                 }
             });
-        } else if(action == ACTION_EDIT) {
-            titleView.setTitle("编辑AR绑定");
+        } else if (from == FROM_ACTIVITY) {
             titleView.addLeftAction("返回", new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -114,18 +122,22 @@ public class BinderDetailFragment extends Fragment {
         titleView.addRightAction("提交", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ACTION_ADD == action) {
-                    // TODO: 2017/4/15 判空
-                    if(binder.getTarget() == null || binder.getRender() == null) {
-                        XUtils.toast("该AR绑定不合法，请指定识别图片和渲染信息");
-                        return;
-                    }
-                    SimpleDBManager.getInstance(getActivity()).getBinderDBHelper().insert(binder);
-                    MainActivity._instance.replaceFragment(BinderManageFragment.newInstance());
-                } else if (ACTION_EDIT == action) {
-                    SimpleDBManager.getInstance(getActivity()).getBinderDBHelper().update(binder);
-                    MainActivity._instance.replaceFragment(BinderManageFragment.newInstance());
+                if (binder.getTarget() == null || binder.getRender() == null) {
+                    XUtils.toast("该AR绑定不合法，请指定识别图片和渲染信息");
+                    return;
                 }
+                if (action == ACTION_ADD) {
+                    SimpleDBManager.getInstance(getActivity()).getBinderDBHelper().insert(binder);
+                } else if (action == ACTION_EDIT) {
+                    SimpleDBManager.getInstance(getActivity()).getBinderDBHelper().update(binder);
+                }
+                if (from == FROM_FRAGMENT) {
+                    MainActivity._instance.replaceFragment(BinderManageFragment.newInstance());
+                } else if (from == FROM_ACTIVITY) {
+                    getActivity().setResult(Activity.RESULT_OK);
+                    getActivity().finish();
+                }
+
             }
         });
     }
@@ -134,6 +146,11 @@ public class BinderDetailFragment extends Fragment {
         Bundle bundle = getArguments();
         if (bundle != null) {
             action = bundle.getInt(ARG_ACTION);
+            binder = (Binder) bundle.getSerializable(ARG_BINDER);
+            if (binder == null) {
+                binder = new Binder(null, null);
+            }
+            from = bundle.getInt(ARG_FROM);
         }
     }
 
@@ -159,7 +176,7 @@ public class BinderDetailFragment extends Fragment {
                     renderView.setImageResource(R.drawable.type_text);
                     break;
                 case RenderType.TYPE_IMAGE:
-                    Bitmap bitmap = FileUtils.decodeBitmapFromFile(render.getFileUri(), 200, 200);
+                    Bitmap bitmap = FileUtils.decodeBitmapFromFile(render.getContent(), 200, 200);
                     if (bitmap != null) {
                         renderView.setImageBitmap(bitmap);
                     }
@@ -175,6 +192,17 @@ public class BinderDetailFragment extends Fragment {
         Fragment fragment = new BinderDetailFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_ACTION, action);
+        bundle.putInt(ARG_FROM, FROM_FRAGMENT);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static Fragment newInstance(int action, Binder binder) {
+        Fragment fragment = new BinderDetailFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt(ARG_ACTION, action);
+        bundle.putSerializable(ARG_BINDER, binder);
+        bundle.putInt(ARG_FROM, FROM_ACTIVITY);
         fragment.setArguments(bundle);
         return fragment;
     }

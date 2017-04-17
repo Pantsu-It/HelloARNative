@@ -31,6 +31,7 @@
         <activity
             android:name="cn.easyar.samples.helloar.ar.ARActivity"
             android:screenOrientation="landscape" />
+        <activity android:name="cn.easyar.samples.helloar.main.binder_detail.BinderDetailActivity" />
         <activity android:name="cn.easyar.samples.helloar.main.target_manage.TargetSelectActivity" />
         <activity android:name="cn.easyar.samples.helloar.main.render_manage.RenderSelectActivity" />
     </application>
