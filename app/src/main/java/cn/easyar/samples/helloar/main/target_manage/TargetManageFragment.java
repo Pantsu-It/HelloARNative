@@ -3,6 +3,7 @@ package cn.easyar.samples.helloar.main.target_manage;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.ContentProvider;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,12 +20,16 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.util.List;
 
 import cn.easyar.samples.helloar.R;
 import cn.easyar.samples.helloar.beans.Target;
+import cn.easyar.samples.helloar.beans.render.Render;
+import cn.easyar.samples.helloar.beans.render.RenderFactory;
 import cn.easyar.samples.helloar.data_ctrl.SimpleDBManager;
 import cn.easyar.samples.helloar.tool.FileUtils;
 import cn.easyar.samples.helloar.view.CommonTitleView;
@@ -142,14 +148,18 @@ public class TargetManageFragment extends Fragment {
             ContentResolver cr = getActivity().getContentResolver();
             Bitmap bmp;
             try {
-                bmp = BitmapFactory.decodeStream(cr.openInputStream(uri));
-                File file = FileUtils.saveBitmap(getActivity(), bmp, FileUtils.getTargetsDir(getActivity()),
-                        FileUtils.getSrcFileName(uri.getPath()));
+                InputStream inputStream = cr.openInputStream(uri);
+                bmp = BitmapFactory.decodeStream(inputStream);
+                File file = FileUtils.saveBitmap(bmp, FileUtils.getRendersDir(getActivity()),
+                        FileUtils.getRenderFileName(uri.getPath()));
+                FileUtils.saveBitmap(bmp, file);
                 Target target = new Target(file.getAbsolutePath());
                 SimpleDBManager.getInstance(getActivity()).getTargetDBHelper().insert(target);
 
                 refreshView();
             } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

@@ -15,10 +15,10 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:padding="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="12dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -27,7 +27,7 @@
                 android:textColor="#777777"
                 android:textSize="14dp" />
 
-            <GridView
+            <cn.easyar.samples.helloar.view.CustomGridView
                 android:id="@+id/gridViewText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
                 android:textColor="#777777"
                 android:textSize="14dp" />
 
-            <GridView
+            <cn.easyar.samples.helloar.view.CustomGridView
                 android:id="@+id/gridViewImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                 android:textColor="#777777"
                 android:textSize="14dp" />
 
-            <GridView
+            <cn.easyar.samples.helloar.view.CustomGridView
                 android:id="@+id/gridViewVideo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

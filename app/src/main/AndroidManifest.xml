@@ -3,6 +3,7 @@
     package="cn.easyar.samples.helloar">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -27,6 +28,10 @@
         <activity android:name=".main.binder_detail.BinderDetailActivity"></activity>
         <activity android:name=".main.target_manage.TargetSelectActivity"></activity>
         <activity android:name=".main.render_manage.RenderSelectActivity"></activity>
+
+        <activity
+            android:name=".part.VideoActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

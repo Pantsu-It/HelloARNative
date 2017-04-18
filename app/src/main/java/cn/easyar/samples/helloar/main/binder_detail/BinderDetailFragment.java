@@ -3,8 +3,6 @@ package cn.easyar.samples.helloar.main.binder_detail;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -12,13 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import java.io.File;
-
 import cn.easyar.samples.helloar.R;
 import cn.easyar.samples.helloar.beans.Binder;
 import cn.easyar.samples.helloar.beans.Target;
 import cn.easyar.samples.helloar.beans.render.Render;
-import cn.easyar.samples.helloar.beans.render.RenderType;
 import cn.easyar.samples.helloar.data_ctrl.SimpleDBManager;
 import cn.easyar.samples.helloar.main.MainActivity;
 import cn.easyar.samples.helloar.main.binder_manage.BinderManageFragment;
@@ -26,7 +21,7 @@ import cn.easyar.samples.helloar.main.render_manage.RenderManageFragment;
 import cn.easyar.samples.helloar.main.render_manage.RenderSelectActivity;
 import cn.easyar.samples.helloar.main.target_manage.TargetManageFragment;
 import cn.easyar.samples.helloar.main.target_manage.TargetSelectActivity;
-import cn.easyar.samples.helloar.tool.FileUtils;
+import cn.easyar.samples.helloar.tool.ViewFactory;
 import cn.easyar.samples.helloar.tool.XUtils;
 import cn.easyar.samples.helloar.view.CommonTitleView;
 
@@ -52,7 +47,7 @@ public class BinderDetailFragment extends Fragment {
     private int from;
 
     ImageView targetView;
-    ImageView renderView;
+    View renderView;
 
     @Nullable
     @Override
@@ -68,14 +63,13 @@ public class BinderDetailFragment extends Fragment {
 
     private void initView(View mRootView) {
         targetView = (ImageView) mRootView.findViewById(R.id.iv_target);
-        renderView = (ImageView) mRootView.findViewById(R.id.iv_src);
+        renderView = mRootView.findViewById(R.id.iv_render);
 
         if (binder.getTarget() != null) {
-            targetView.setImageURI(Uri.fromFile(new File(binder.getTarget().getImgUri())));
+            ViewFactory.bindView(getActivity(), targetView, binder.getTarget());
         }
-        // TODO: 2017/4/16 Render多类型显示
         if (binder.getRender() != null) {
-            renderView.setImageURI(Uri.fromFile(new File(binder.getRender().getContent())));
+            ViewFactory.bindView(getActivity(), renderView, binder.getRender());
         }
 
         targetView.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +91,6 @@ public class BinderDetailFragment extends Fragment {
 
     private void initTitle(View rootView) {
         CommonTitleView titleView = (CommonTitleView) rootView.findViewById(R.id.title);
-        // TODO: 2017/4/15 编辑和添加Binder的 界面跳转形式
         if (action == ACTION_ADD) {
             titleView.setTitle("添加AR绑定");
         } else if (action == ACTION_EDIT) {
@@ -163,28 +156,12 @@ public class BinderDetailFragment extends Fragment {
             Target target = (Target) data.getSerializableExtra(TargetManageFragment.RETURN_DATA);
             binder.setTarget(target);
 
-            Bitmap bitmap = FileUtils.decodeBitmapFromFile(target.getImgUri(), 200, 200);
-            if (bitmap != null) {
-                targetView.setImageBitmap(bitmap);
-            }
+            ViewFactory.bindView(getActivity(), targetView, target);
         } else if (requestCode == REQUEST_SRC) {
             Render render = (Render) data.getSerializableExtra(RenderManageFragment.RETURN_DATA);
             binder.setRender(render);
 
-            switch (render.getType()) {
-                case RenderType.TYPE_TEXT:
-                    renderView.setImageResource(R.drawable.type_text);
-                    break;
-                case RenderType.TYPE_IMAGE:
-                    Bitmap bitmap = FileUtils.decodeBitmapFromFile(render.getContent(), 200, 200);
-                    if (bitmap != null) {
-                        renderView.setImageBitmap(bitmap);
-                    }
-                    break;
-                case RenderType.TYPE_VIDEO:
-                    renderView.setImageResource(R.drawable.type_video);
-                    break;
-            }
+            ViewFactory.bindView(getActivity(), renderView, render);
         }
     }
 

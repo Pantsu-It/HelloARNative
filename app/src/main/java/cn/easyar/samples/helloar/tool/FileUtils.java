@@ -5,12 +5,16 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaMetadataRetriever;
 import android.util.Log;
 
 import java.io.File;
+import java.io.FileDescriptor;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by Pants on 2017/4/6.
@@ -22,6 +26,14 @@ public class FileUtils {
         return context.getExternalFilesDir("targets");
     }
 
+    public static File getRendersDir(Context context) {
+        return context.getExternalFilesDir("renders");
+    }
+
+    public static File getThumbDir(Context context) {
+        return context.getExternalFilesDir("thumbs");
+    }
+
     public static String getPostfix(String filePath) {
         String[] splits = filePath.split("\\.");
         return splits[splits.length - 1];
@@ -31,8 +43,12 @@ public class FileUtils {
         return "t" + System.currentTimeMillis() + "." + getPostfix(filePath);
     }
 
-    public static String getSrcFileName(String filePath) {
+    public static String getRenderFileName(String filePath) {
         return "s" + System.currentTimeMillis() + "." + getPostfix(filePath);
+    }
+
+    public static String getThumbFileName(int renderId) {
+        return "thumb-" + renderId + ".png";
     }
 
     public static Intent selectImage(Context context) {
@@ -58,28 +74,60 @@ public class FileUtils {
         return intent;
     }
 
-    public static File saveBitmap(Context context, Bitmap bitmap, File dir, String fileName) {
+    public static File saveBitmap(Bitmap bitmap, File dir, String fileName) {
         File f = new File(dir, fileName);
-        try {
-            if (f.exists()) {
-                f.delete();
-                f.createNewFile();
-            }
+        saveBitmap(bitmap, f);
+        return f;
+    }
 
-            FileOutputStream out = new FileOutputStream(f);
-            bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
+    public static void saveBitmap(Bitmap bitmap, File file) {
+        try {
+            if (file.exists()) {
+                file.delete();
+                file.createNewFile();
+            }
+            FileOutputStream out = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 0, out);
             out.flush();
             out.close();
-            XUtils.toast("已经保存");
-            Log.i("TAG", "已经保存" + f.getAbsolutePath());
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return f;
+    }
+
+    public static void saveFile(InputStream srcFile, File tarFile) throws Exception {
+        int length = 2097152;
+        InputStream in = srcFile;
+        FileOutputStream out = new FileOutputStream(tarFile);
+        byte[] buffer = new byte[length];
+        while (true) {
+            int ins = in.read(buffer);
+            if (ins == -1) {
+                in.close();
+                out.flush();
+                out.close();
+            } else {
+                out.write(buffer, 0, ins);
+            }
+        }
+    }
+
+    public static void saveFile(File srcFile, File tarFile) throws Exception {
+        int length = 2097152;
+        FileInputStream in = new FileInputStream(srcFile);
+        FileOutputStream out = new FileOutputStream(tarFile);
+        byte[] buffer = new byte[length];
+        while (true) {
+            int ins = in.read(buffer);
+            if (ins == -1) {
+                in.close();
+                out.flush();
+                out.close();
+                return;
+            } else {
+                out.write(buffer, 0, ins);
+            }
+        }
     }
 
     public static Bitmap decodeBitmapFromFile(String path, int reqWidth, int reqHeight) {
@@ -110,6 +158,26 @@ public class FileUtils {
             inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
         }
         return inSampleSize;
+    }
+
+    public static Bitmap getVideoThumbnail(String filePath) {
+        Bitmap bitmap = null;
+        MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+        try {
+            retriever.setDataSource(filePath);
+            bitmap = retriever.getFrameAtTime();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                retriever.release();
+            } catch (RuntimeException e) {
+                e.printStackTrace();
+            }
+        }
+        return bitmap;
     }
 
 }

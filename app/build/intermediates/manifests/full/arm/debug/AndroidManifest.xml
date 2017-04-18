@@ -9,6 +9,7 @@
         android:targetSdkVersion="22" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -34,6 +35,9 @@
         <activity android:name="cn.easyar.samples.helloar.main.binder_detail.BinderDetailActivity" />
         <activity android:name="cn.easyar.samples.helloar.main.target_manage.TargetSelectActivity" />
         <activity android:name="cn.easyar.samples.helloar.main.render_manage.RenderSelectActivity" />
+        <activity
+            android:name="cn.easyar.samples.helloar.part.VideoActivity"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

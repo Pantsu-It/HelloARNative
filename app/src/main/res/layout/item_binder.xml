@@ -1,44 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="20dp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
-    app:contentPadding="20dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="12dp"
-    app:cardBackgroundColor="#cccccc">
+    android:layout_height="wrap_content">
 
-    <FrameLayout
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_margin="12dp"
+        app:cardBackgroundColor="#dddddd"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp">
 
-        <ImageView
-            android:id="@+id/btnDelete"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="right|top"
-            android:src="@android:drawable/ic_notification_clear_all" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
 
-            <include
-                layout="@layout/item_target"
-                android:layout_width="100dp"
-                android:layout_height="100dp" />
+                <include
+                    layout="@layout/item_target"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp" />
 
-            <include
-                layout="@layout/item_render"
-                android:layout_width="100dp"
-                android:layout_height="100dp" />
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:src="@drawable/arrow" />
 
-        </LinearLayout>
-    </FrameLayout>
+                <include
+                    layout="@layout/item_render"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp" />
+            </LinearLayout>
 
-</android.support.v7.widget.CardView>
+            <ImageView
+                android:id="@+id/btnDelete"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="right|top"
+                android:src="@android:drawable/ic_notification_clear_all" />
+        </FrameLayout>
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

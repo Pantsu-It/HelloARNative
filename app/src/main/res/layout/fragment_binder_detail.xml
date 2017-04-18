@@ -23,11 +23,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <ImageView
+        <include
+            layout="@layout/item_target"
             android:id="@+id/iv_target"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="#cccccc"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"/>
 
@@ -42,11 +42,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <ImageView
-            android:id="@+id/iv_src"
+        <include
+            layout="@layout/item_render"
+            android:id="@+id/iv_render"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="#cccccc"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"/>
     </LinearLayout>

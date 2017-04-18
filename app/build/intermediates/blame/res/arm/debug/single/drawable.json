@@ -132,6 +132,10 @@
         "source": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\drawable\\abc_seekbar_thumb_material.xml"
     },
     {
+        "merged": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\res\\merged\\arm\\debug\\drawable\\arrow.png",
+        "source": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\src\\main\\res\\drawable\\arrow.png"
+    },
+    {
         "merged": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\res\\merged\\arm\\debug\\drawable\\design_snackbar_background.xml",
         "source": "D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\drawable\\design_snackbar_background.xml"
     },

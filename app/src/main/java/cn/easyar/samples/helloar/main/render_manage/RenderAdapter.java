@@ -49,16 +49,16 @@ public class RenderAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
+        View itemView;
         if (convertView == null) {
             convertView = View.inflate(mContext, R.layout.item_render, null);
             convertView.setLayoutParams(getLayoutParams(column, spaceDpi));
         }
-        imageView = (ImageView) convertView;
+        itemView = convertView;
 
         Render render = getItem(position);
-        ViewFactory.bindView(mContext, imageView, render);
-        return imageView;
+        ViewFactory.bindView(mContext, itemView, render);
+        return itemView;
     }
 
     public static final int column = 3;
@@ -67,7 +67,7 @@ public class RenderAdapter extends BaseAdapter {
     private ViewGroup.LayoutParams getLayoutParams(int column, int spaceDpi) {
         int widthPixels = mContext.getResources().getDisplayMetrics().widthPixels;
         int spacePixels = (int) mContext.getResources().getDisplayMetrics().density * spaceDpi;
-        int cell = (widthPixels - (column - 1) * spacePixels) / column;
+        int cell = (widthPixels - (column + 1) * spacePixels) / column;
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(cell, cell);
         return params;
     }

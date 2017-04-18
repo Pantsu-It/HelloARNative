@@ -18,7 +18,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -32,6 +31,7 @@ import cn.easyar.samples.helloar.beans.render.RenderType;
 import cn.easyar.samples.helloar.data_ctrl.RenderDBHelper;
 import cn.easyar.samples.helloar.data_ctrl.SimpleDBManager;
 import cn.easyar.samples.helloar.main.target_manage.TargetAdapter;
+import cn.easyar.samples.helloar.part.VideoActivity;
 import cn.easyar.samples.helloar.tool.FileUtils;
 import cn.easyar.samples.helloar.tool.XUtils;
 import cn.easyar.samples.helloar.view.CommonTitleView;
@@ -190,12 +190,24 @@ public class RenderManageFragment extends Fragment {
         @Override
         public boolean onItemLongClick(final AdapterView<?> parent, View view, final int position, long id) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setItems(new String[]{"删除"}, new DialogInterface.OnClickListener() {
+            builder.setItems(new String[]{"查看", "删除"}, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+                    Render render = (Render) parent.getItemAtPosition(position);
                     switch (which) {
                         case 0:
-                            Render render = (Render) parent.getItemAtPosition(position);
+                            switch (render.getType()) {
+                                case RenderType.TYPE_TEXT:
+                                    break;
+                                case RenderType.TYPE_IMAGE:
+                                    break;
+                                case RenderType.TYPE_VIDEO:
+                                    Intent intent = VideoActivity.getIntent(getActivity(), render.getContent());
+                                    startActivity(intent);
+                                    break;
+                            }
+                            break;
+                        case 1:
                             SimpleDBManager.getInstance(getActivity()).getRenderDBHelper().delete(render);
                             refreshView();
                             break;
@@ -214,16 +226,14 @@ public class RenderManageFragment extends Fragment {
         }
         if (requestCode == REQUEST_IMAGE) {
             Uri uri = data.getData();
-
             ContentResolver cr = getActivity().getContentResolver();
             Bitmap bmp;
             try {
                 bmp = BitmapFactory.decodeStream(cr.openInputStream(uri));
-                File file = FileUtils.saveBitmap(getActivity(), bmp, FileUtils.getTargetsDir(getActivity()),
+                File file = FileUtils.saveBitmap(bmp, FileUtils.getTargetsDir(getActivity()),
                         FileUtils.getTargetFileName(uri.getPath()));
                 Render render = RenderFactory.createImage(file.getAbsolutePath());
                 SimpleDBManager.getInstance(getActivity()).getRenderDBHelper().insert(render);
-
                 refreshView();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -231,16 +241,16 @@ public class RenderManageFragment extends Fragment {
         } else if (requestCode == REQUEST_VIDEO) {
             Uri uri = data.getData();
             Cursor cursor = getActivity().getContentResolver().query(uri, null, null, null, null);
-            cursor.moveToFirst();
-            // String imgNo = cursor.getString(0); // 图片编号
-            String v_path = cursor.getString(1); // 图片文件路径
-            String v_size = cursor.getString(2); // 图片大小
-            String v_name = cursor.getString(3); // 图片文件名
+            if (cursor.moveToFirst()) {
+                // String imgNo = cursor.getString(0); // 图片编号
+                String v_path = cursor.getString(1); // 图片文件路径
+                String v_size = cursor.getString(2); // 图片大小
+                String v_name = cursor.getString(3); // 图片文件名
 
-            Render render = RenderFactory.createVideo(v_path);
-            SimpleDBManager.getInstance(getActivity()).getRenderDBHelper().insert(render);
-
-            refreshView();
+                Render render = RenderFactory.createVideo(v_path);
+                SimpleDBManager.getInstance(getActivity()).getRenderDBHelper().insert(render);
+                refreshView();
+            }
         }
     }
 

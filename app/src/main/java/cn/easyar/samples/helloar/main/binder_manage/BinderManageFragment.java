@@ -32,7 +32,7 @@ public class BinderManageFragment extends Fragment implements OnItemDeleteCallba
     public static final int REQUEST_EDIT_BINDER = 0x12;
 
     private ListView mListView;
-    private BinderManageAdapter mBinderAdapter;
+    private BinderAdapter mBinderAdapter;
 
     @Nullable
     @Override
@@ -61,7 +61,7 @@ public class BinderManageFragment extends Fragment implements OnItemDeleteCallba
         mListView = (ListView) rootView.findViewById(R.id.listView);
 
         List<Binder> binders = SimpleDBManager.getInstance(getActivity()).getBinderDBHelper().queryAll();
-        mBinderAdapter = new BinderManageAdapter(getActivity(), binders, this);
+        mBinderAdapter = new BinderAdapter(getActivity(), binders, this);
         mListView.setAdapter(mBinderAdapter);
         mListView.setOnItemClickListener(mItemClickListener);
     }
@@ -84,7 +84,7 @@ public class BinderManageFragment extends Fragment implements OnItemDeleteCallba
     public void onDelete(final Binder binder) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         AlertDialog dialog = builder.setTitle("提示")
-                .setMessage("删除后将无法恢复该AR绑定")
+                .setMessage("删除后只能手动添加新的 “AR绑定”")
                 .setNegativeButton("取消", null)
                 .setPositiveButton("确认删除", new DialogInterface.OnClickListener() {
                     @Override

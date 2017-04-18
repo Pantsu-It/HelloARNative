@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,6 +17,7 @@ import cn.easyar.samples.helloar.main.binder_detail.BinderDetailFragment;
 import cn.easyar.samples.helloar.main.binder_manage.BinderManageFragment;
 import cn.easyar.samples.helloar.main.render_manage.RenderManageFragment;
 import cn.easyar.samples.helloar.main.target_manage.TargetManageFragment;
+import cn.easyar.samples.helloar.tool.ImageCache;
 import cn.easyar.samples.helloar.tool.XUtils;
 
 
@@ -22,6 +25,7 @@ public class MainActivity extends Activity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static MainActivity _instance;
+    public static Handler mHandler = new Handler(Looper.getMainLooper());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,7 @@ public class MainActivity extends Activity
 
         _instance = this;
         XUtils.init(getApplicationContext());
+        ImageCache.init();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -91,6 +96,10 @@ public class MainActivity extends Activity
         getFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, fragment)
                 .commitAllowingStateLoss();
+    }
+
+    public void postOnUiThread(Runnable runnable) {
+        mHandler.post(runnable);
     }
 
     @Override
