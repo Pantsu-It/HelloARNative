@@ -54,7 +54,7 @@ public class ViewFactory {
             case RenderType.TYPE_IMAGE:
                 Glide.with(context)
                         .load(render.getContent())
-                        .centerCrop()
+                        .fitCenter()
                         .into(imageView);
                 textView.setVisibility(View.GONE);
                 imageView.setVisibility(View.VISIBLE);

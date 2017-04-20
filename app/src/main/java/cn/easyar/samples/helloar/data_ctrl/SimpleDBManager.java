@@ -24,8 +24,11 @@ public class SimpleDBManager extends SQLiteOpenHelper {
             ")";
 
     public static final String SQL_CREATE_BINDER = "create table binder(" +
-            "target_id integer primary key," +
-            "render_id integer" +
+            "binder_id integer primary key autoincrement," +
+            "target_id integer," +
+            "render_id integer," +
+            "foreign key(target_id) references target(target_id) on delete cascade," +
+            "foreign key(render_id) references render(render_id) on delete cascade" +
             ")";
 
     @Override

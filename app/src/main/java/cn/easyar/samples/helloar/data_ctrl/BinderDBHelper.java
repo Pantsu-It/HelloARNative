@@ -34,6 +34,7 @@ public class BinderDBHelper {
     }
 
     private Binder cursorToObject(Cursor cursor) {
+        int binderId = cursor.getInt(cursor.getColumnIndex("binder_id"));
         int targetId = cursor.getInt(cursor.getColumnIndex("target_id"));
         String targetUri = cursor.getString(cursor.getColumnIndex("target_uri"));
         int renderId = cursor.getInt(cursor.getColumnIndex("render_id"));
@@ -42,7 +43,7 @@ public class BinderDBHelper {
 
         Target target = new Target(targetId, targetUri);
         Render render = new Render(renderId, renderUri, renderType);
-        Binder binder = new Binder(target, render);
+        Binder binder = new Binder(binderId, target, render);
         return binder;
     }
 
@@ -55,25 +56,13 @@ public class BinderDBHelper {
                 "target_id=?", new String[]{binder.getTarget().getTargetId() + ""}, SQLiteDatabase.CONFLICT_REPLACE);
     }
 
-    public int delete(Target target) {
-        int imfact = mDatabase.delete(TABLE_NAME, "target_id=?",
-                new String[]{target.getTargetId() + ""});
+    public int delete(Binder binder) {
+        int imfact = mDatabase.delete(TABLE_NAME, "binder_id=?",
+                new String[]{binder.getBinderId() + ""});
         return imfact;
     }
 
-    public int delete(Binder binder) {
-        return delete(binder.getTarget());
-    }
-
-    public Binder query(Target target) {
-        Cursor cursor = mDatabase.rawQuery("select * from binder natural join target natural join render where target_id=?",
-                new String[]{target.getTargetId() + ""});
-        if (cursor.moveToFirst()) {
-            return cursorToObject(cursor);
-        }
-        return null;
-    }
-
+    @Deprecated
     public Binder query(Binder binder) {
         Cursor cursor = mDatabase.rawQuery("select * from binder natural join target natural join render where target_id=? & render_id=?",
                 new String[]{binder.getTarget().getTargetId() + "", binder.getRender().getRenderId() + ""});
