@@ -14,10 +14,11 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
+import java.util.List;
+
 import cn.easyar.engine.EasyAR;
 import cn.easyar.samples.helloar.R;
 import cn.easyar.samples.helloar.beans.Binder;
-import cn.easyar.samples.helloar.main.binder_manage.ManageModel;
 
 
 public class ARActivity extends Activity {
@@ -42,9 +43,9 @@ public class ARActivity extends Activity {
         ((ViewGroup) findViewById(R.id.preview)).addView(glView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         ARModel.nativeRotationChange(getWindowManager().getDefaultDisplay().getRotation() == android.view.Surface.ROTATION_0);
 
-        Binder target = ManageModel.getInstance(this).getTarget();
-        if (target != null && target.getTarget() != null) {
-            ARModel.nativeLoadTarget(target.getTarget().getImgUri());
+        List<Binder> binders = BinderManager.getBinders(this);
+        for (Binder binder : binders) {
+            ARModel.nativeLoadTarget(binder.getTarget().getImgUri());
         }
     }
 
