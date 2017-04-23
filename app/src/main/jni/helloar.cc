@@ -11,6 +11,13 @@
 
 #define JNIFUNCTION_NATIVE(sig) Java_cn_easyar_samples_helloar_ar_ARModel_##sig
 
+#ifdef ANDROID
+#include <android/log.h>
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO, "EasyAR", __VA_ARGS__)
+#else
+#define LOGI(...) printf(__VA_ARGS__)
+#endif
+
 extern "C" {
     JNIEXPORT jboolean JNICALL JNIFUNCTION_NATIVE(nativeInit(JNIEnv* env, jobject object));
     JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeDestory(JNIEnv* env, jobject object));
@@ -18,7 +25,7 @@ extern "C" {
     JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeResizeGL(JNIEnv* env, jobject object, jint w, jint h));
     JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeRender(JNIEnv* env, jobject obj));
     JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeRotationChange(JNIEnv* env, jobject obj, jboolean portrait));
-    JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeLoadTarget(JNIEnv* env, jobject obj, jstring path));
+    JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeLoadTarget(JNIEnv* env, jobject obj, jstring path, jstring uid));
 };
 
 namespace EasyAR {
@@ -69,6 +76,17 @@ void HelloAR::render()
     glViewport(viewport_[0], viewport_[1], viewport_[2], viewport_[3]);
 
     for (int i = 0; i < frame.targets().size(); ++i) {
+        Target target1 = frame.targets()[i].target();
+        std::string uid = target1.uid();
+
+        long index1 = uid.find_first_of("type:");
+        long index2 = uid.find_first_of("content:");
+        long length = uid.length();
+        std::string type = uid.substr(index1 + 5, index2 + 1);
+        std::string content = uid.substr(index2 + 16, length);
+        LOGI("load target: name-%s uid-%s\n", target1.name(), target1.uid());
+        LOGI("load target: type:%s content:%s\n", type.c_str(), content.c_str());
+
         AugmentedTarget::Status status = frame.targets()[i].status();
         if (status == AugmentedTarget::kTargetStatusTracked) {
             Matrix44F projectionMatrix = getProjectionGL(camera_.cameraCalibration(), 0.2f, 500.f);
@@ -120,8 +138,10 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeRotationChange(JNIEnv*, jobject,
     ar.setPortrait(portrait);
 }
 
-JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeLoadTarget(JNIEnv* env, jobject, jstring path))
+JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeLoadTarget(JNIEnv* env, jobject, jstring path, jstring uid))
 {
-    std::string str = env->GetStringUTFChars(path, false);
-    ar.loadFromImage(str);
+    std::string str1 = env->GetStringUTFChars(path, false);
+    std::string str2 = env->GetStringUTFChars(uid, false);
+
+    ar.loadTarget(str1, str2);
 }

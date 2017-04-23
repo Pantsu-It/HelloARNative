@@ -45,7 +45,7 @@ public class ARActivity extends Activity {
 
         List<Binder> binders = BinderManager.getBinders(this);
         for (Binder binder : binders) {
-            ARModel.nativeLoadTarget(binder.getTarget().getImgUri());
+            ARModel.loadBinder(binder);
         }
     }
 

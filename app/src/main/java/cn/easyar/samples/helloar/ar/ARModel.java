@@ -1,9 +1,11 @@
 package cn.easyar.samples.helloar.ar;
 
 import android.app.Activity;
-import android.util.JsonWriter;
 
 import cn.easyar.engine.EasyAR;
+import cn.easyar.samples.helloar.beans.Binder;
+import cn.easyar.samples.helloar.beans.Target;
+import cn.easyar.samples.helloar.beans.render.Render;
 
 /**
  * Created by Pants on 2017/4/6.
@@ -31,14 +33,23 @@ public class ARModel {
     public static native boolean nativeInit();
     public static native void nativeDestory();
     public static native void nativeRotationChange(boolean portrait);
-    public static native void nativeLoadTarget(String path);
+    private static native void nativeLoadTarget(String path, String uid);
 
     public static void init(Activity activity) {
         EasyAR.initialize(activity, key);
     }
 
-    public static void loadImage(String path) {
-        nativeLoadTarget(path);
+    public static void loadBinder(Binder binder) {
+        Target target = binder.getTarget();
+        Render render = binder.getRender();
+
+        String path = target.getImgUri();
+        String uid = "type:" + render.getType() + ", content:" + render.getContent();
+        loadImage(path, uid);
+    }
+
+    public static void loadImage(String path, String uid) {
+        nativeLoadTarget(path, uid);
     }
 
 }

@@ -27,6 +27,7 @@ public:
     virtual void loadFromImage(const std::string& path);
     virtual void loadFromJsonFile(const std::string& path, const std::string& targetname);
     virtual void loadAllFromJsonFile(const std::string& path);
+    virtual void loadTarget(const std::string& path, const std::string& uid);
     virtual bool start();
     virtual bool stop();
     virtual bool clear();

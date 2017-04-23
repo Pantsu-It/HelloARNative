@@ -78,6 +78,23 @@ void AR::loadAllFromJsonFile(const std::string& path)
     }
 }
 
+void AR::loadTarget(const std::string& path, const std::string& uid)
+{
+    ImageTarget target;
+    std::string jstr =         "{\n"
+                               "  \"images\" :\n"
+                               "  [\n"
+                               "    {\n"
+                               "      \"image\" : \"" + path + "\",\n"
+                               "      \"name\" : \"" + path.substr(0, path.find_first_of(".")) + "\",\n"
+                               "      \"uid\" : \"" + uid + "\"\n"
+                               "    }\n"
+                               "  ]\n"
+                               "}";
+    target.load(jstr.c_str(), EasyAR::kStorageAbsolute | EasyAR::kStorageJson);
+    tracker_.loadTarget(target, new HelloCallBack());
+}
+
 bool AR::start()
 {
     bool status = true;
