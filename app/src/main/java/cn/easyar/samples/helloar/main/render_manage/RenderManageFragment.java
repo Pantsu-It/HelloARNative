@@ -230,8 +230,8 @@ public class RenderManageFragment extends Fragment {
             Bitmap bmp;
             try {
                 bmp = BitmapFactory.decodeStream(cr.openInputStream(uri));
-                File file = FileUtils.saveBitmap(bmp, FileUtils.getTargetsDir(getActivity()),
-                        FileUtils.getTargetFileName(uri.getPath()));
+                File file = FileUtils.saveBitmap(bmp, FileUtils.getRendersDir(getActivity()),
+                        FileUtils.getRenderFileName(uri.getPath()));
                 Render render = RenderFactory.createImage(file.getAbsolutePath());
                 SimpleDBManager.getInstance(getActivity()).getRenderDBHelper().insert(render);
                 refreshView();

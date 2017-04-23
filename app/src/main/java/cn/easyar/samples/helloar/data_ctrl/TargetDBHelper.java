@@ -44,7 +44,8 @@ public class TargetDBHelper {
 
     public void update(Target target) {
         mDatabase.updateWithOnConflict(TABLE_NAME, objectToValues(target),
-                "", null, SQLiteDatabase.CONFLICT_REPLACE);
+                "target_id=?", new String[]{target.getTargetId() + ""},
+                SQLiteDatabase.CONFLICT_REPLACE);
     }
 
     public int delete(Target target) {

@@ -6,6 +6,8 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaMetadataRetriever;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.util.Log;
 
 import java.io.File;
@@ -40,11 +42,11 @@ public class FileUtils {
     }
 
     public static String getTargetFileName(String filePath) {
-        return "t" + System.currentTimeMillis() + "." + getPostfix(filePath);
+        return "t" + System.currentTimeMillis() + ".png";
     }
 
     public static String getRenderFileName(String filePath) {
-        return "s" + System.currentTimeMillis() + "." + getPostfix(filePath);
+        return "s" + System.currentTimeMillis() + ".png";
     }
 
     public static String getThumbFileName(int renderId) {
@@ -68,9 +70,30 @@ public class FileUtils {
         return intent;
     }
 
+    public static Intent cameraImage(Uri toFile) {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        //写文件
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, toFile);
+        intent.putExtra("outputFormat", Bitmap.CompressFormat.PNG);
+        intent.putExtra("return-data", false);
+        return intent;
+    }
+
+    public static Intent cropImage(Uri uri) {
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setDataAndType(uri, "image/*");
+        intent.putExtra("crop", "true");
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        intent.putExtra("outputX", 100);
+        intent.putExtra("outputY", 100);
+        intent.putExtra("return-data", true);
+        return intent;
+    }
+
     public static Intent selectVideo(Context context) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
-        intent.setType("video/*");    //这个参数是确定要选择的内容为图片，
+        intent.setType("video/*");
         return intent;
     }
 
