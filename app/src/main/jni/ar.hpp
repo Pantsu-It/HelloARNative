@@ -38,7 +38,7 @@ public:
     void setPortrait(bool portrait);
 protected:
     CameraDevice camera_;
-    ImageTracker tracker_;
+    ImageTracker tracker_[3];
     Augmenter augmenter_;
     bool portrait_;
     Vec4I viewport_;

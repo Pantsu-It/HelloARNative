@@ -6,6 +6,7 @@
 
 #include "ar.hpp"
 #include <algorithm>
+#include <stdlib.h>
 #ifdef ANDROID
 #include <android/log.h>
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, "EasyAR", __VA_ARGS__)
@@ -42,7 +43,12 @@ bool AR::initCamera()
     bool status = true;
     status &= camera_.open();
     camera_.setSize(Vec2I(1280, 720));
-    status &= tracker_.attachCamera(camera_);
+    status &= tracker_[0].attachCamera(camera_);
+    status &= tracker_[1].attachCamera(camera_);
+    status &= tracker_[2].attachCamera(camera_);
+    tracker_[0].setSimultaneousNum(1);
+    tracker_[1].setSimultaneousNum(2);
+    tracker_[2].setSimultaneousNum(3);
     status &= augmenter_.attachCamera(camera_);
     return status;
 }
@@ -60,21 +66,21 @@ void AR::loadFromImage(const std::string& path)
                        "  ]\n"
                        "}";
     target.load(jstr.c_str(), EasyAR::kStorageAbsolute | EasyAR::kStorageJson);
-    tracker_.loadTarget(target, new HelloCallBack());
+    tracker_[0].loadTarget(target, new HelloCallBack());
 }
 
 void AR::loadFromJsonFile(const std::string& path, const std::string& targetname)
 {
     ImageTarget target;
     target.load(path.c_str(), EasyAR::kStorageAssets, targetname.c_str());
-    tracker_.loadTarget(target, new HelloCallBack());
+    tracker_[0].loadTarget(target, new HelloCallBack());
 }
 
 void AR::loadAllFromJsonFile(const std::string& path)
 {
     TargetList targets = ImageTarget::loadAll(path.c_str(), EasyAR::kStorageAbsolute  | EasyAR::kStorageJson);
     for (int i = 0; i < targets.size(); ++i) {
-        tracker_.loadTarget(targets[i], new HelloCallBack());
+        tracker_[0].loadTarget(targets[i], new HelloCallBack());
     }
 }
 
@@ -92,7 +98,12 @@ void AR::loadTarget(const std::string& path, const std::string& uid)
                                "  ]\n"
                                "}";
     target.load(jstr.c_str(), EasyAR::kStorageAbsolute | EasyAR::kStorageJson);
-    tracker_.loadTarget(target, new HelloCallBack());
+
+    int index1 = uid.find_first_of("type:");
+    int index2 = uid.find_first_of("content:");
+    std::string type = uid.substr(index1 + 5, index2 + 1);
+    int _type = atoi(type.c_str());
+    tracker_[_type].loadTarget(target, new HelloCallBack());
 }
 
 bool AR::start()
@@ -100,14 +111,18 @@ bool AR::start()
     bool status = true;
     status &= camera_.start();
     camera_.setFocusMode(CameraDevice::kFocusModeContinousauto);
-    status &= tracker_.start();
+    status &= tracker_[0].start();
+    status &= tracker_[1].start();
+    status &= tracker_[2].start();
     return status;
 }
 
 bool AR::stop()
 {
     bool status = true;
-    status &= tracker_.stop();
+    status &= tracker_[0].stop();
+    status &= tracker_[1].stop();
+    status &= tracker_[2].stop();
     status &= camera_.stop();
     return status;
 }
@@ -118,7 +133,9 @@ bool AR::clear()
     status &= stop();
     status &= camera_.close();
     camera_.clear();
-    tracker_.clear();
+    tracker_[0].clear();
+    tracker_[1].clear();
+    tracker_[2].clear();
     augmenter_.clear();
     return status;
 }

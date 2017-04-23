@@ -1,11 +1,17 @@
 See file:///D:/Android/Projects/EasyARSDKSamples/Android/HelloARNative/app/build/tmp/compileArmeabi-v7aDebugHelloARNativeSharedLibraryHelloARNativeMainCpp/output.txt for all output for compileArmeabi-v7aDebugHelloARNativeSharedLibraryHelloARNativeMainCpp.
+compiling renderer.cc successful.
+
+compiling native-lib.cpp successful.
+
 compiling helloar.cc successful.
 D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\jni\helloar.cc: In function 'void Java_cn_easyar_samples_helloar_ar_ARModel_nativeLoadTarget(JNIEnv*, jobject, jstring, jstring)':
-D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\jni\helloar.cc:144:58: warning: converting 'false' to pointer type for argument 2 of 'const char* _JNIEnv::GetStringUTFChars(jstring, jboolean*)' [-Wconversion-null]
+D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\jni\helloar.cc:143:58: warning: converting 'false' to pointer type for argument 2 of 'const char* _JNIEnv::GetStringUTFChars(jstring, jboolean*)' [-Wconversion-null]
      std::string str1 = env->GetStringUTFChars(path, false);
                                                           ^
-D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\jni\helloar.cc:145:57: warning: converting 'false' to pointer type for argument 2 of 'const char* _JNIEnv::GetStringUTFChars(jstring, jboolean*)' [-Wconversion-null]
+D:\Android\Projects\EasyARSDKSamples\Android\HelloARNative\app\src\main\jni\helloar.cc:144:57: warning: converting 'false' to pointer type for argument 2 of 'const char* _JNIEnv::GetStringUTFChars(jstring, jboolean*)' [-Wconversion-null]
      std::string str2 = env->GetStringUTFChars(uid, false);
                                                          ^
+
+compiling ar.cc successful.
 
 Finished compileArmeabi-v7aDebugHelloARNativeSharedLibraryHelloARNativeMainCpp, see full log file:///D:/Android/Projects/EasyARSDKSamples/Android/HelloARNative/app/build/tmp/compileArmeabi-v7aDebugHelloARNativeSharedLibraryHelloARNativeMainCpp/output.txt.
