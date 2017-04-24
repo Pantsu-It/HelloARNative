@@ -6,7 +6,6 @@
 
 #include "ar.hpp"
 #include <algorithm>
-#include <stdlib.h>
 #ifdef ANDROID
 #include <android/log.h>
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, "EasyAR", __VA_ARGS__)
@@ -168,6 +167,95 @@ void AR::setPortrait(bool portrait)
 {
     portrait_ = portrait;
 }
+
+    //video
+    ARVideo::ARVideo()
+    {
+        prepared_ = false;
+        found_ = false;
+        callback_ = NULL;
+    }
+
+    ARVideo::~ARVideo()
+    {
+        player_.close();
+        if(callback_)
+            delete callback_;
+    }
+
+    void ARVideo::openVideoFile(const std::string& path, int texid)
+    {
+        if(!callback_)
+            callback_ = new CallBack(this);
+        path_ = path;
+        player_.setRenderTexture(texid);
+        player_.setVideoType(VideoPlayer::kVideoTypeNormal);
+        player_.open(path.c_str(), kStorageAbsolute, callback_);
+    }
+
+    void ARVideo::openTransparentVideoFile(const std::string& path, int texid)
+    {
+        if(!callback_)
+            callback_ = new CallBack(this);
+        path_ = path;
+        player_.setRenderTexture(texid);
+        player_.setVideoType(VideoPlayer::kVideoTypeTransparentSideBySide);
+        player_.open(path.c_str(), kStorageAssets, callback_);
+    }
+
+    void ARVideo::openStreamingVideo(const std::string& url, int texid)
+    {
+        if(!callback_)
+            callback_ = new CallBack(this);
+        path_ = url;
+        player_.setRenderTexture(texid);
+        player_.setVideoType(VideoPlayer::kVideoTypeNormal);
+        player_.open(url.c_str(), kStorageAbsolute, callback_);
+    }
+
+    void ARVideo::setVideoStatus(VideoPlayer::Status status)
+    {
+        LOGI("video: %s (%d)\n", path_.c_str(), status);
+        if (status == VideoPlayer::kVideoReady) {
+            prepared_ = true;
+            if (found_)
+                player_.play();
+        }
+        if (status == VideoPlayer::kVideoCompleted) {
+            if (found_)
+                player_.play();
+        }
+    }
+
+    void ARVideo::onFound()
+    {
+        found_ = true;
+        if (prepared_) {
+            player_.play();
+        }
+    }
+
+    void ARVideo::onLost()
+    {
+        found_ = false;
+        if (prepared_)
+            player_.pause();
+    }
+
+    void ARVideo::update()
+    {
+        player_.updateFrame();
+    }
+
+    ARVideo::CallBack::CallBack(ARVideo* video)
+    {
+        video_ = video;
+    }
+
+    void ARVideo::CallBack::operator() (VideoPlayer::Status status)
+    {
+        video_->setVideoStatus(status);
+    }
 
 }
 }

@@ -12,37 +12,69 @@
 #include "easyar/augmenter.hpp"
 #include "easyar/imagetarget.hpp"
 #include "easyar/frame.hpp"
+#include "easyar/player.hpp"
 #include "easyar/utility.hpp"
 #include <string>
 
 namespace EasyAR{
 namespace samples{
 
-class AR
-{
-public:
-    AR();
-    virtual ~AR();
-    virtual bool initCamera();
-    virtual void loadFromImage(const std::string& path);
-    virtual void loadFromJsonFile(const std::string& path, const std::string& targetname);
-    virtual void loadAllFromJsonFile(const std::string& path);
-    virtual void loadTarget(const std::string& path, const std::string& uid);
-    virtual bool start();
-    virtual bool stop();
-    virtual bool clear();
+    class AR
+    {
+    public:
+        AR();
+        virtual ~AR();
+        virtual bool initCamera();
+        virtual void loadFromImage(const std::string& path);
+        virtual void loadFromJsonFile(const std::string& path, const std::string& targetname);
+        virtual void loadAllFromJsonFile(const std::string& path);
+        virtual void loadTarget(const std::string& path, const std::string& uid);
+        virtual bool start();
+        virtual bool stop();
+        virtual bool clear();
 
-    virtual void initGL();
-    virtual void resizeGL(int width, int height);
-    virtual void render();
-    void setPortrait(bool portrait);
-protected:
-    CameraDevice camera_;
-    ImageTracker tracker_[3];
-    Augmenter augmenter_;
-    bool portrait_;
-    Vec4I viewport_;
-};
+        virtual void initGL();
+        virtual void resizeGL(int width, int height);
+        virtual void render();
+        void setPortrait(bool portrait);
+    protected:
+        CameraDevice camera_;
+        ImageTracker tracker_[3];
+        Augmenter augmenter_;
+        bool portrait_;
+        Vec4I viewport_;
+    };
+
+    class ARVideo {
+    public:
+        ARVideo();
+        ~ARVideo();
+
+        void openVideoFile(const std::string& path, int texid);
+        void openTransparentVideoFile(const std::string& path, int texid);
+        void openStreamingVideo(const std::string& url, int texid);
+
+        void setVideoStatus(VideoPlayer::Status status);
+        void onFound();
+        void onLost();
+        void update();
+
+        class CallBack : public VideoPlayerCallBack
+        {
+        public:
+            CallBack(ARVideo* video);
+            void operator() (VideoPlayer::Status status);
+        private:
+            ARVideo* video_;
+        };
+
+    private:
+        VideoPlayer player_;
+        bool prepared_;
+        bool found_;
+        CallBack* callback_;
+        std::string path_;
+    };
 
 }
 }

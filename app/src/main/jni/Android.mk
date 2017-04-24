@@ -15,5 +15,5 @@ LOCAL_LDLIBS += -llog -lGLESv2
 LOCAL_SHARED_LIBRARIES += libEasyAR
 LOCAL_CPP_EXTENSION := .cc
 LOCAL_MODULE := libHelloARNative
-LOCAL_SRC_FILES := ar.cc helloar.cc renderer.cc
+LOCAL_SRC_FILES := ar.cc helloar.cc render_box.cc render_video.cc
 include $(BUILD_SHARED_LIBRARY)

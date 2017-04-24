@@ -2,9 +2,10 @@
 -Wl,-soname,libHelloARNative.so
 -o
 D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\binaries\\debug\\arm\\obj\\armeabi-v7a\\libHelloARNative.so
+D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\objectFiles\\armeabi-v7aDebugHelloARNativeSharedLibrary\\HelloARNativeMainCpp\\19ycc0r124dfdieykvp49vxof\\renderer_box.o
 D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\objectFiles\\armeabi-v7aDebugHelloARNativeSharedLibrary\\HelloARNativeMainCpp\\614a5v3f3ooqxeojqs44tf0jk\\helloar.o
 D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\objectFiles\\armeabi-v7aDebugHelloARNativeSharedLibrary\\HelloARNativeMainCpp\\6c87d96ksydr9kl2b2n02u4j0\\ar.o
-D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\objectFiles\\armeabi-v7aDebugHelloARNativeSharedLibrary\\HelloARNativeMainCpp\\a4gb3te8qh8fvhi1ntae2nenu\\renderer.o
+D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\objectFiles\\armeabi-v7aDebugHelloARNativeSharedLibrary\\HelloARNativeMainCpp\\asj6y8o3gqwjhke3w80bqmlko\\renderer_video.o
 D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\objectFiles\\armeabi-v7aDebugHelloARNativeSharedLibrary\\HelloARNativeMainCpp\\c4bblbvl4tz8ocsqqzd83tt90\\native-lib.o
 -Wl,--no-undefined
 -Wl,-z,noexecstack
