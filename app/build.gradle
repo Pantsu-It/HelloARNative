@@ -28,6 +28,7 @@ model {
         stl = "gnustl_static"
         ldLibs.add("log")
         ldLibs.add("GLESv2")
+        ldLibs.add("jnigraphics")
     }
     android.productFlavors {
         create("arm") {
@@ -56,4 +57,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.0.+'
 
     compile 'com.github.bumptech.glide:glide:3.6.0'
+    compile 'org.jcodec:jcodec-android:0.1.9'
 }

@@ -15,6 +15,7 @@
 #include "easyar/player.hpp"
 #include "easyar/utility.hpp"
 #include <string>
+#include <jni.h>
 
 namespace EasyAR{
 namespace samples{
@@ -33,7 +34,7 @@ namespace samples{
         virtual bool stop();
         virtual bool clear();
 
-        virtual void initGL();
+        virtual void initGL(JNIEnv * env);
         virtual void resizeGL(int width, int height);
         virtual void render();
         void setPortrait(bool portrait);

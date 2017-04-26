@@ -9,6 +9,8 @@
 #include <OpenGLES/ES2/gl.h>
 #else
 #include <GLES2/gl2.h>
+#include <GLES2/gl2ext.h>
+#include <GLES2/gl2platform.h>
 #endif
 
 const char* box_video_vert="uniform mat4 trans;\n"
@@ -77,8 +79,10 @@ void VideoRenderer::init()
     glUniform1i(glGetUniformLocation(program_box, "texture"), 0);
     glGenTextures(1, &texture_id);
     glBindTexture(GL_TEXTURE_2D, texture_id);
+    //纹理滤镜
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    //纹理缠绕（边界）
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 }

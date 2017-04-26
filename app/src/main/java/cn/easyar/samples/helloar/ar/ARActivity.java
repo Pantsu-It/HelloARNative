@@ -19,6 +19,7 @@ import java.util.List;
 import cn.easyar.engine.EasyAR;
 import cn.easyar.samples.helloar.R;
 import cn.easyar.samples.helloar.beans.Binder;
+import cn.easyar.samples.helloar.beans.render.RenderType;
 
 
 public class ARActivity extends Activity {
@@ -33,6 +34,8 @@ public class ARActivity extends Activity {
         setContentView(R.layout.activity_ar);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
+
+
         ARModel.init(this);
         ARModel.nativeInit();
 
@@ -40,12 +43,23 @@ public class ARActivity extends Activity {
         glView.setRenderer(new Renderer());
         glView.setZOrderMediaOverlay(true);
 
+
+
         ((ViewGroup) findViewById(R.id.preview)).addView(glView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         ARModel.nativeRotationChange(getWindowManager().getDefaultDisplay().getRotation() == android.view.Surface.ROTATION_0);
+    }
 
+    void load() {
+        boolean a = true;
         List<Binder> binders = BinderManager.getBinders(this);
         for (Binder binder : binders) {
             ARModel.loadBinder(binder);
+            if (a && binder.getRender().getType() == RenderType.TYPE_IMAGE) {
+                a = true;
+
+//                ARModel.sendImageTexture(binder.getRender().getContent());
+                ARModel.sendBitmap(binder.getRender().getContent());
+            }
         }
     }
 

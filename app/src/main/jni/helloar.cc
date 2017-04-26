@@ -6,6 +6,7 @@
 
 #include "ar.hpp"
 #include "renderer_box.hpp"
+#include "renderer_image.hpp"
 #include "renderer_video.hpp"
 #include <jni.h>
 #include <GLES2/gl2.h>
@@ -15,6 +16,7 @@
 #ifdef ANDROID
 #include <android/log.h>
 #include <cstdlib>
+#include <android/bitmap.h>
 
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, "EasyAR", __VA_ARGS__)
 #else
@@ -33,6 +35,8 @@ extern "C" {
     JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeRender(JNIEnv* env, jobject obj));
     JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeRotationChange(JNIEnv* env, jobject obj, jboolean portrait));
     JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeLoadTarget(JNIEnv* env, jobject obj, jstring path, jstring uid));
+    JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeSendTextureId(JNIEnv* env, jobject obj, jint texId));
+    JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeSendBitmap(JNIEnv* env, jobject obj, jobject bitmap));
 };
 
 namespace EasyAR {
@@ -43,14 +47,24 @@ class HelloAR : public AR
 public:
     HelloAR();
     ~HelloAR();
-    virtual void initGL();
+    virtual void initGL(JNIEnv * env);
     virtual void resizeGL(int width, int height);
     virtual void render();
     virtual bool clear();
+    virtual void setTextureId(int texId);
+
+    virtual void setBitmap(jobject bitmap);
+    virtual void setEnv(JNIEnv *pEnv);
+
 private:
     Vec2I view_size;
     //box
     BoxRenderer boxRenderer;
+    //image
+    int texture_id;
+    jobject bitmap;
+    JNIEnv* env;
+    ImageRenderer imageRender;
     //video
     VideoRenderer* videoRenderers[3];
     int tracked_target;
@@ -80,12 +94,14 @@ HelloAR::HelloAR()
         }
     }
 
-void HelloAR::initGL()
+void HelloAR::initGL(JNIEnv *env1)
 {
     augmenter_ = Augmenter();
     augmenter_.attachCamera(camera_);
     //box
     boxRenderer.init();
+    //image
+//
     //video
     for(int i = 0; i < 3; ++i) {
         videoRenderers[i]->init();
@@ -125,12 +141,20 @@ void HelloAR::render()
         short _type = atoi(type.c_str());
 
         AugmentedTarget::Status status = frame.targets()[i].status();
-        if(_type == TYPE_TXT || _type == TYPE_IMAGE) {
+        if(_type == TYPE_TXT) {
             if (status == AugmentedTarget::kTargetStatusTracked) {
                 Matrix44F projectionMatrix = getProjectionGL(camera_.cameraCalibration(), 0.2f, 500.f);
                 Matrix44F cameraview = getPoseGL(frame.targets()[i].pose());
                 ImageTarget target = frame.targets()[i].target().cast_dynamic<ImageTarget>();
                 boxRenderer.render(projectionMatrix, cameraview, target.size());
+            }
+        } else if(_type == TYPE_IMAGE) {
+            if (status == AugmentedTarget::kTargetStatusTracked) {
+                Matrix44F projectionMatrix = getProjectionGL(camera_.cameraCalibration(), 0.2f, 500.f);
+                Matrix44F cameraview = getPoseGL(frame.targets()[i].pose());
+                ImageTarget target = frame.targets()[i].target().cast_dynamic<ImageTarget>();
+                imageRender.setBitmap(bitmap);
+                imageRender.render(projectionMatrix, cameraview, target.size());
             }
         } else if (_type == TYPE_VIDEO) {
             LOGI("track_target1: %d  %d", tracked_target, status);
@@ -200,6 +224,42 @@ void HelloAR::render()
         return true;
     }
 
+    void HelloAR::setTextureId(int texId)
+    {
+        LOGI("before: %d", texture_id);
+        texture_id = texId;
+        LOGI("after: %d", texture_id);
+    }
+
+    void HelloAR::setBitmap(jobject bitmap_)
+    {
+        bitmap = bitmap_;
+
+        imageRender.setBitmap(bitmap);
+        imageRender.init(env);
+
+//        AndroidBitmapInfo info;
+//        GLvoid* pixels;
+//        AndroidBitmap_getInfo(env, bitmap, &info);
+//        if(info.format != ANDROID_BITMAP_FORMAT_RGBA_8888) {
+//            LOGI("Bitmap format is not RGBA_8888! format: %d w:%d h:%d", info.format, info.width, info.height);
+//            return;
+//        } else {
+//            LOGI("Bitmap format is RGBA_8888! format: %d w:%d h:%d", info.format, info.width, info.height);
+//        }
+//        AndroidBitmap_lockPixels(env, bitmap, &pixels);
+//        // Now you can use the pixel array 'pixels', which is in RGBA format
+//        imageRender.init();
+//        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, info.width, info.height, 0, GL_RGBA, GL_FLOAT, pixels);
+////        imageRender.setPixels(pixels);
+//        LOGI("Bitmap format --------------------------1");
+//        AndroidBitmap_unlockPixels(env, bitmap);
+    }
+
+    void HelloAR::setEnv(JNIEnv *pEnv) {
+        env = pEnv;
+    }
+
 }
 }
 EasyAR::samples::HelloAR ar;
@@ -221,9 +281,9 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeDestory(JNIEnv*, jobject))
     ar.clear();
 }
 
-JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeInitGL(JNIEnv*, jobject))
+JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeInitGL(JNIEnv* env, jobject))
 {
-    ar.initGL();
+    ar.initGL(env);
 }
 
 JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeResizeGL(JNIEnv*, jobject, jint w, jint h))
@@ -247,4 +307,15 @@ JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeLoadTarget(JNIEnv* env, jobject,
     std::string str2 = env->GetStringUTFChars(uid, false);
 
     ar.loadTarget(str1, str2);
+}
+
+JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeSendTextureId(JNIEnv* env, jobject, jint texId))
+{
+    ar.setTextureId(texId);
+}
+
+JNIEXPORT void JNICALL JNIFUNCTION_NATIVE(nativeSendBitmap(JNIEnv* env, jobject, jobject bitmap))
+{
+    ar.setEnv(env);
+    ar.setBitmap(bitmap);
 }

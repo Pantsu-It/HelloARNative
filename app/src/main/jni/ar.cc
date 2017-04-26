@@ -153,7 +153,7 @@ void AR::resizeGL(int width, int height)
     viewport_ = Vec4I(0, height - viewport_size[1], viewport_size[0], viewport_size[1]);
 }
 
-void AR::initGL()
+void AR::initGL(JNIEnv *env)
 {
 
 }

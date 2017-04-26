@@ -5,6 +5,7 @@ D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\int
 D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\objectFiles\\armeabi-v7aDebugHelloARNativeSharedLibrary\\HelloARNativeMainCpp\\19ycc0r124dfdieykvp49vxof\\renderer_box.o
 D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\objectFiles\\armeabi-v7aDebugHelloARNativeSharedLibrary\\HelloARNativeMainCpp\\614a5v3f3ooqxeojqs44tf0jk\\helloar.o
 D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\objectFiles\\armeabi-v7aDebugHelloARNativeSharedLibrary\\HelloARNativeMainCpp\\6c87d96ksydr9kl2b2n02u4j0\\ar.o
+D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\objectFiles\\armeabi-v7aDebugHelloARNativeSharedLibrary\\HelloARNativeMainCpp\\6pm0duy6tue0om2ii0wp33mvx\\renderer_image.o
 D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\objectFiles\\armeabi-v7aDebugHelloARNativeSharedLibrary\\HelloARNativeMainCpp\\asj6y8o3gqwjhke3w80bqmlko\\renderer_video.o
 D:\\Android\\Projects\\EasyARSDKSamples\\Android\\HelloARNative\\app\\build\\intermediates\\objectFiles\\armeabi-v7aDebugHelloARNativeSharedLibrary\\HelloARNativeMainCpp\\c4bblbvl4tz8ocsqqzd83tt90\\native-lib.o
 -Wl,--no-undefined
@@ -19,3 +20,4 @@ D:\\Android\\Projects\\EasyARSDKSamples\\package\\Android\\libs\\armeabi-v7a\\li
 -no-canonical-prefixes
 -llog
 -lGLESv2
+-ljnigraphics
